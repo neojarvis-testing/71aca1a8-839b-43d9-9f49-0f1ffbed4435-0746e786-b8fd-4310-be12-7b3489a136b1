@@ -14,7 +14,7 @@ public class SportsJamAdidasResultsPageLocator {
     public static By filterCategoryClothingLabel = By.xpath("//span[text()='Clothing' and @class='filter-value']");
     public static By filterCategoryAccessories = By.xpath("//span[text()='Accessories' and @class='label']");   
     public static By filterCategoryAccessoriesLabel = By.xpath("//span[text()='Accessories' and @class='filter-value']");
-    public static By filterCategoryRuuning = By.xpath("//span[text()='Running' and @class='label']");
+    public static By filterCategoryRunning = By.xpath("//span[text()='Running' and @class='label']");
     public static By filterCategoryRunningLabel = By.xpath("//span[text()='Running' and @class='filter-value']");
     public static By clearAllButton = By.cssSelector("a[href='https://sportsjam.in/catalogsearch/result/index/?q=Adidas']");
     /*1.20 skipped */

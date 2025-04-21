@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -245,6 +246,16 @@ public class WebDriverHelper {
 				}
 			}
 		} catch (Exception e) {
+			LoggerHandler.error(message);
+			test.log(Status.FAIL, message);
+		}
+    }
+    public void checkAssert(String text, String containsValue, String message) {
+        try {
+			Assert.assertTrue(text.contains(containsValue));
+			LoggerHandler.info(message);
+			test.log(Status.PASS, message);
+		} catch (AssertionError e) {
 			LoggerHandler.error(message);
 			test.log(Status.FAIL, message);
 		}

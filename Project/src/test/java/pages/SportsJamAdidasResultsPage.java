@@ -26,7 +26,7 @@ public class SportsJamAdidasResultsPage {
     public void verifySearchBar(){
         String text = Base.driver.findElement(SportsJamHomePageLocator.placeholderSearchBar).getDomAttribute("placeholder");
         System.out.println(text);
-        Assert.assertEquals(text, ExcelReader.getCellData("AssertData", 0, 0));
+        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 0, 0),"Text verified");
     }
 
     public void clickOnSearchBar(){
@@ -43,28 +43,80 @@ public class SportsJamAdidasResultsPage {
 
     public void verifyAdidasInHeading(){
         String text = helper.getText(SportsJamAdidasResultsPageLocator.adidasHeading, "Heading verified");
-        Assert.assertTrue(text.contains("adidas"));
+        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 1, 0),"Heading verified");
     }
 
     public void selectCheckboxOfRacketSports(){
-        helper.checkbox(SportsJamAdidasResultsPageLocator.filterCategoryRacketSports, "Racket Sports", "Checked Racket Sports");
+        helper.checkbox(SportsJamAdidasResultsPageLocator.filterCategoryRacketSports, ExcelReader.getCellData("CheckBoxData", 0, 0), "Selected Racket Sports");
     }
 
     public void verifyRacketSportsLabel(){
         String text = helper.getText(SportsJamAdidasResultsPageLocator.filterCategoryRacketSportsLabel, "Label verified");
-        Assert.assertTrue(text.contains("Racket Sports"));
+        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 2, 0),"Text verified");
     }
     
     public void selectCheckboxOfShoes(){
-        helper.checkbox(SportsJamAdidasResultsPageLocator.filterCategoryShoes, "Shoes", "Checked Shoes");
+        helper.checkbox(SportsJamAdidasResultsPageLocator.filterCategoryShoes, ExcelReader.getCellData("CheckBoxData", 1, 0), "Selected Shoes");
     }
     
     public void verifyShoesLabel(){
         String text = helper.getText(SportsJamAdidasResultsPageLocator.filterCategoryShoesLabel, "Label verified");
-        Assert.assertTrue(text.contains("Shoes"));
+        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 3, 0),"Text verified");
     }
 
     public void deSelectCheckboxOfRacketSports(){
-        
+        helper.checkbox(SportsJamAdidasResultsPageLocator.filterCategoryRacketSports, ExcelReader.getCellData("CheckBoxData", 0, 0), "De-selected Racket Sports");
+    }
+
+    public void selectCheckboxOfClothing(){
+        helper.checkbox(SportsJamAdidasResultsPageLocator.filterCategoryClothing, ExcelReader.getCellData("CheckBoxData", 2, 0), "Selected Clothing");
+    }
+
+    public void verifyClothingLabel(){
+        String text = helper.getText(SportsJamAdidasResultsPageLocator.filterCategoryClothingLabel, "Label verified");
+        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 4, 0), "Text verified");
+    }
+
+    public void selectCheckboxOfAccessories(){
+        helper.checkbox(SportsJamAdidasResultsPageLocator.filterCategoryAccessories, ExcelReader.getCellData("CheckBoxData", 3, 0), "Selected Accessories");
+    }
+
+    public void verifyAccessoriesLabel(){
+        String text = helper.getText(SportsJamAdidasResultsPageLocator.filterCategoryAccessoriesLabel, "Label verified");
+        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 5, 0), "Text verified");
+    }
+
+    public void selectCheckboxOfRunning(){
+        helper.checkbox(SportsJamAdidasResultsPageLocator.filterCategoryRunning, ExcelReader.getCellData("CheckBoxData", 4, 0), "Selected Running");
+    }
+
+    public void verifyRunningLabel(){
+        String text = helper.getText(SportsJamAdidasResultsPageLocator.filterCategoryRunningLabel, "Label verified");
+        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 6, 0), "Text verified");
+    }
+
+    public void clickClearAllButton(){
+        helper.clickOnElement(SportsJamAdidasResultsPageLocator.clearAllButton, "Clicked on Clear All button");
+    }
+
+    public void adidasProductFilter(){
+        clickOnSearchIcon();
+        verifySearchBar();
+        clickOnSearchBar();
+        sendDataInSearchBar();
+        clickOnGoButton();
+        verifyAdidasInHeading();
+        selectCheckboxOfRacketSports();
+        verifyRacketSportsLabel();
+        selectCheckboxOfShoes();
+        verifyShoesLabel();
+        deSelectCheckboxOfRacketSports();
+        selectCheckboxOfClothing();
+        verifyClothingLabel();
+        selectCheckboxOfAccessories();
+        verifyAccessoriesLabel();
+        selectCheckboxOfRunning();
+        verifyRunningLabel();
+        clickClearAllButton();
     }
 }
