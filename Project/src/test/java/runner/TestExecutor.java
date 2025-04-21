@@ -4,11 +4,18 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+
+import pages.ShopSportsPage;
 import utils.Base;
+import utils.Reporter;
 
 public class TestExecutor extends Base{
-
+    ExtentTest test;
+    ExtentReports report;
     /*
      * a. MethodName: openReport
      * b. AuthorName: Sharath
@@ -19,7 +26,7 @@ public class TestExecutor extends Base{
     @BeforeClass
     public void openReport()
     {
-        
+        report=Reporter.generateReport("murali");
     }
 
     /*
@@ -32,9 +39,14 @@ public class TestExecutor extends Base{
     @BeforeMethod
     public void openInterface()
     {
-
+        openBrowser();
     }
-
+    @Test
+    public void testcase3(){
+        test=report.createTest("testcase3");
+        ShopSportsPage ssp=new ShopSportsPage(test);
+        ssp.testcase3();
+    }
     /*
      * a. MethodName: closeInterface
      * b. AuthorName: Sharath
@@ -45,7 +57,7 @@ public class TestExecutor extends Base{
     @AfterMethod
     public void closeInterface()
     {
-
+        driver.quit();
     }
 
     /*
@@ -58,6 +70,6 @@ public class TestExecutor extends Base{
     @AfterClass
     public void closeReport()
     {
-        
+        report.flush();
     }
 }
