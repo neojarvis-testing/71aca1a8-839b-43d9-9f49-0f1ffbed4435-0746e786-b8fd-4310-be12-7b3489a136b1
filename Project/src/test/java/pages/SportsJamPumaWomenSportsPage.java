@@ -22,6 +22,13 @@ public class SportsJamPumaWomenSportsPage {
         webDriverHelper = new WebDriverHelper(driver, test);
     }
 
+    /*
+     * a. MethodName: runWomenSportsCase
+     * b. AuthorName: Sharath
+     * c. Description: This code Cluster runs all testCases in sequence
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     public void runWomenSportsCase()
     {
         verifyHomePageURL();
@@ -67,17 +74,38 @@ public class SportsJamPumaWomenSportsPage {
         verifyTheErrorMessage();
     }
 
+    /*
+     * a. MethodName: verifyHomePageURL
+     * b. AuthorName: Sharath
+     * c. Description: This verifies the Home page url
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void verifyHomePageURL() 
     {
         // ExcelReader.getCellData("PageUrl",0,0);
         webDriverHelper.verifyPageUrl("https://sportsjam.in/","Home page url is verified");
     }
     
+    /*
+     * a. MethodName: clickOnBrand
+     * b. AuthorName: Sharath
+     * c. Description: This code clicks on brand button
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void clickOnBrand() 
     {
         webDriverHelper.clickOnElement(SportsJamHomePageLocators.brand, "Clicked on brand");
     }
     
+    /*
+     * a. MethodName: verifyBrandsPageURL
+     * b. AuthorName: Sharath
+     * c. Description: This verifies the Brand Page url
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void verifyBrandsPageURL() 
     {
         // ExcelReader.getCellData("PageUrl",1,0);
@@ -85,44 +113,100 @@ public class SportsJamPumaWomenSportsPage {
         
     }
 
+    /*
+     * a. MethodName: clickOnBrand
+     * b. AuthorName: Sharath
+     * c. Description: This code clicks on search bar
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void clickOnSearchBar() 
     {
         webDriverHelper.clickOnElement(SportsJamBrandPageLocators.searchbar, "Clicked on searchbar");
     }
     
+    /*
+     * a. MethodName: sendDataToSearchBar
+     * b. AuthorName: Sharath
+     * c. Description: This code sends data to search bar
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void sendDataToSearchBar() 
     {
         // ExcelReader.getCellData("DataToBeSent",0,0);
         webDriverHelper.sendData(SportsJamBrandPageLocators.searchbar,"Puma", "Sent Puma to searchbar");
     }
 
+    /*
+     * a. MethodName: clickOnSearchIcon
+     * b. AuthorName: Sharath
+     * c. Description: This code clicks on searchicon
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void clickOnSearchIcon() 
     {
         webDriverHelper.clickOnElement(SportsJamBrandPageLocators.searchicon, "Clicked on search icon");
     }
 
+    /*
+     * a. MethodName: verifyTextForPuma
+     * b. AuthorName: Sharath
+     * c. Description: This verifies the The Puma text from element
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void verifyTextForPuma() 
     {
         String text = webDriverHelper.getText(SportsJamBrandPageLocators.pumalink,"puma text is retrieved form element");
         Assert.assertTrue(text.contains("Puma"));
     }
 
+    /*
+     * a. MethodName: clickOnPuma
+     * b. AuthorName: Sharath
+     * c. Description: This code clicks on Puma Button
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void clickOnPuma() 
     {
         webDriverHelper.clickOnElement(SportsJamBrandPageLocators.pumalink, "Clicked on Puma result");
     }
 
+    /*
+     * a. MethodName: verifyThePumaPage
+     * b. AuthorName: Sharath
+     * c. Description: This verifies the Puma Page Url
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void verifyThePumaPage() 
     {
         // ExcelReader.getCellData("PageUrl",2,0);
         webDriverHelper.verifyPageUrl("https://sportsjam.in/shopbrand/puma","Puma Product Result page url is verified");
     }
 
+    /*
+     * a. MethodName: clickOnAccesories
+     * b. AuthorName: Sharath
+     * c. Description: This code clicks on Accessories Button
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void clickOnAccesories() 
     {
         webDriverHelper.clickOnElement(PumaProductPageLocators.accessories, "Clicked on Accessries");
     }
 
+    /*
+     * a. MethodName: verifyAccessoiresTextInFilter
+     * b. AuthorName: Sharath
+     * c. Description: This verifies the Accessories text after appliying filter
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void verifyAccessoiresTextInFilter() 
     {
         String text = webDriverHelper.getText(PumaProductPageLocators.accessoriesText, "Retrieved Accessories text from element");
@@ -130,32 +214,74 @@ public class SportsJamPumaWomenSportsPage {
         Assert.assertTrue(text.toLowerCase().contains("accessories"));
     }
 
+    /*
+     * a. MethodName: hoverOverPumaWomenSportQuartersAssorted
+     * b. AuthorName: Sharath
+     * c. Description: This code hovers over first product
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void hoverOverPumaWomenSportQuartersAssorted() 
     {
         webDriverHelper.hoverOverElement(PumaProductPageLocators.firstProduct,"Hoverd on Women Sport Quarter Assorted Prodcut");
     }
 
+    /*
+     * a. MethodName: clickOnQuickView
+     * b. AuthorName: Sharath
+     * c. Description: This code clicks on WuickView Button
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void clickOnQuickView() 
     {
         webDriverHelper.clickOnElement(PumaProductPageLocators.quickview, "Clicked on QuickView");
     }
 
+    /*
+     * a. MethodName: switchToIframe
+     * b. AuthorName: Sharath
+     * c. Description: This code switcehs into iframe ks on Puma Button
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void switchToIframe() 
     {
         webDriverHelper.switchToIFrame(PumaProductPageLocators.iframe, "Switched to Iframe");
     }
 
+    /*
+     * a. MethodName: verifyIFrameURL
+     * b. AuthorName: Sharath
+     * c. Description: This verifies the Page url from the iframe
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void verifyIFrameURL() 
     {
         webDriverHelper.verifyPageUrl("https://sportsjam.in/ox_quickview/catalog_product/view/id/30663/", "Iframe Page Url Verified");
     }
 
+    /*
+     * a. MethodName: clickOnWishList
+     * b. AuthorName: Sharath
+     * c. Description: This code clicks on WishList Button
+     * d. Parameters: None
+     * e. ReturnType: None
+     */    
     private void clickOnWishList() 
     {
         webDriverHelper.clickOnElement(PumaProductPageLocators.wishlist, "Clicked On WishList");
         webDriverHelper.exitIFrame("exited form iframe");
     }
 
+    /*
+     * a. MethodName: verifyLoginPromptMessage
+     * b. AuthorName: Sharath
+     * c. Description: This verifies the text in prompt message
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void verifyLoginPromptMessage() 
     {
         String text = webDriverHelper.getText(SportsJamCustomerLoginLocators.promtMessage, "Retrieved Prompt message");
@@ -163,6 +289,13 @@ public class SportsJamPumaWomenSportsPage {
         Assert.assertTrue(text.toLowerCase().contains("you must login or register to add items to your wishlist."));
     }
 
+    /*
+     * a. MethodName: clickAndSendDataToEmail
+     * b. AuthorName: Sharath
+     * c. Description: This code clicks and sends email to input field
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void clickAndSendDataToEmail() 
     {
         // ExcelReader.getCellData("CustomerLogin",0,0);
@@ -170,6 +303,13 @@ public class SportsJamPumaWomenSportsPage {
         webDriverHelper.sendData(SportsJamCustomerLoginLocators.email,"test134@gmail.com","Sent email to input field");
     }
 
+    /*
+     * a. MethodName: clickAndSendDataToPassword
+     * b. AuthorName: Sharath
+     * c. Description: This code clicks and sends password to input field
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void clickAndSendDataToPassword() 
     {
         // ExcelReader.getCellData("CustomerLogin",1,0);
@@ -177,11 +317,25 @@ public class SportsJamPumaWomenSportsPage {
         webDriverHelper.sendData(SportsJamCustomerLoginLocators.password, "test140@ga", "Sent data to password field");
     }
 
+    /*
+     * a. MethodName: clickOnSignIn
+     * b. AuthorName: Sharath
+     * c. Description: This code clicks on signin Button
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void clickOnSignIn() 
     {
         webDriverHelper.clickOnElement(SportsJamCustomerLoginLocators.signin,"Clicked on Signin");
     }
 
+    /*
+     * a. MethodName: verifyTheErrorMessage
+     * b. AuthorName: Sharath
+     * c. Description: This verifies the sign in text
+     * d. Parameters: None
+     * e. ReturnType: None
+     */
     private void verifyTheErrorMessage() 
     {
         String text = webDriverHelper.getText(SportsJamCustomerLoginLocators.signInText,"Retrieved data form signin text");
