@@ -2,70 +2,88 @@ package utils;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import ch.qos.logback.classic.LoggerContext;
-import ch.qos.logback.classic.PatternLayout;
-import ch.qos.logback.core.FileAppender;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
+// import ch.qos.logback.classic.LoggerContext;
+// import ch.qos.logback.classic.PatternLayout;
+// import ch.qos.logback.core.FileAppender;
+
+import org.apache.log4j.FileAppender;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
  
  
 public class LoggerHandler {
  
-    private static final Logger log = LoggerFactory.getLogger(LoggerHandler.class);
-   
-    static {
-        File logDir = new File(System.getProperty("user.dir") + "/logs/");
-        if (!logDir.exists()) {
-            logDir.mkdirs();
-        }
+    private static final Logger logger = Logger.getLogger(LoggerHandler.class);
+    static{
         try {
-            LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
- 
-            FileAppender fileAppender = new FileAppender();
-            fileAppender.setContext(context);
             String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-            String fileLocation = System.getProperty("user.dir") + "/logs/application"+ timestamp +"_.log";
-            fileAppender.setFile(fileLocation);
-            fileAppender.setAppend(true);
-            PatternLayout layout = new PatternLayout();
-            layout.setContext(context);
-            layout.setPattern("%d{ISO8601} %-5p - %m%n");
-            layout.start();
-            fileAppender.setLayout(layout);
-            fileAppender.start();
-            ch.qos.logback.classic.Logger rootLogger = context.getLogger(Logger.ROOT_LOGGER_NAME);
-            rootLogger.addAppender(fileAppender);
+            String logFileName = "logs/logfile_"+timestamp+".log";
+            FileAppender fileAppender = new FileAppender(new PatternLayout("%d{ISO8601} %-5p %c - %m%n "),logFileName,true);
+            logger.addAppender(fileAppender);
         } catch (Exception e) {
-            log.error("Failed to configure logging system programmatically", e);
         }
     }
- 
-    public static void debug(String message) {
-        log.debug(message);
+    /*
+ * a. Method Name: trace
+ * b. Author Name: Gagan Deep Kanta
+ * c. Description: This method logs trace-level messages using the logger.
+ * d. Return Type: void
+ * e. Parameters: String message;
+ */
+    public static void trace (String message) {
+        logger.trace(message);
     }
- 
-    public static void info(String message) {
-        log.info(message);
+/*
+ * a. Method Name: debug
+ * b. Author Name: Gagan Deep Kanta
+ * c. Description: This method logs debug-level messages using the logger.
+ * d. Return Type: void
+ * e. Parameters: String message;
+ */
+    public static void debug (String message) {
+        logger.debug(message);
     }
- 
-    public static void warn(String message) {
-        log.warn(message);
+/*
+ * a. Method Name: info
+ * b. Author Name: Gagan Deep Kanta
+ * c. Description: This method logs info-level messages using the logger.
+ * d. Return Type: void
+ * e. Parameters: String message;
+ */
+    public static void info (String message) {
+        logger.info(message);
     }
- 
-    public static void error(String message) {
-        log.error(message);
+/*
+ * a. Method Name: warn
+ * b. Author Name: Gagan Deep Kanta
+ * c. Description: This method logs warn-level messages using the logger.
+ * d. Return Type: void
+ * e. Parameters: String message;
+ */
+    public static void warn (String message) {
+        logger.warn(message);
     }
- 
-    public static void fatal(String message) {
-        log.error(message); // SLF4J does not have a fatal level, so using error instead
+/*
+ * a. Method Name: error
+ * b. Author Name: Gagan Deep Kanta
+ * c. Description: This method logs error-level messages using the logger.
+ * d. Return Type: void
+ * e. Parameters: String message;
+ */
+    public static void error (String message) {
+        logger.error(message);
     }
- 
-    public static void trace(String message) {
-        log.trace(message);
-    }
- 
-    public static void log(String message) {
-        log.info(message); // Default to info level for generic logging
+/*
+ * a. Method Name: fatal
+ * b. Author Name: Gagan Deep Kanta
+ * c. Description: This method logs fatal-level messages using the logger.
+ * d. Return Type: void
+ * e. Parameters: String message;
+ */
+    public static void fatal (String message) {
+        logger.fatal(message);
     }
 }
  

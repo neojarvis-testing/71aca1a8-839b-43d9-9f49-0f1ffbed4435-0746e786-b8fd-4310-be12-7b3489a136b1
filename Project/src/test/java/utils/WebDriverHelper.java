@@ -5,10 +5,12 @@ import java.util.Set;
  
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -230,4 +232,41 @@ public class WebDriverHelper {
 			test.log(Status.FAIL, message);
 		}
 	}
+	public List<WebElement> sendAllElements(By locator){
+        return driver.findElements(locator);
+    }
+	public void checkbox(By locator, String value, String message){
+		try {
+			List<WebElement> list = sendAllElements(locator);
+			for (WebElement element : list) {
+				if(element.getDomAttribute("value").equals(value)){
+					element.click();
+					LoggerHandler.info(message);
+					test.log(Status.PASS, message);
+					break;
+				}
+			}
+		} catch (Exception e) {
+			LoggerHandler.error(message);
+			test.log(Status.FAIL, message);
+		}
+    }
+    public void checkAssert(String text, String containsValue, String message) {
+        try {
+			System.out.println(text);
+			Assert.assertTrue(text.contains(containsValue));
+			LoggerHandler.info(message);
+			test.log(Status.PASS, message);
+		} catch (AssertionError e) {
+			LoggerHandler.error(message);
+			test.log(Status.FAIL, message);
+		}
+    }
+	public void enterData(By path){
+        try {
+            driver.findElement(path).sendKeys(Keys.ENTER);
+        } catch (Exception e) {
+            LoggerHandler.error("Enter data is not working");
+        }
+    }
 }
