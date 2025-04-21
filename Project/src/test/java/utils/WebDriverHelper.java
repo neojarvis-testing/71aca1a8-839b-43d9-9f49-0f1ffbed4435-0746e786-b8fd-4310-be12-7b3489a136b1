@@ -235,6 +235,8 @@ public class WebDriverHelper {
         try 
 		{
 			String PageUrl = driver.getCurrentUrl();
+			System.out.println(PageUrl);
+			System.out.println(expectedUrl);
 			Assert.assertEquals(PageUrl, expectedUrl);
 
 			LoggerHandler.info(message);
