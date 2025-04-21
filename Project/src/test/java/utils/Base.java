@@ -22,8 +22,15 @@ public class Base {
     public static FileInputStream file;
     public static Properties prop;
 
+    /*
+     * a. Method Name: loadProperties
+     * b. Author Name: Tanishk Maheshwari
+     * c. Description: This will be used to load properties from a configuration file located in the config directory.
+     * d. Parameter: None
+     * e. Return Type: void
+     */
     public void loadProperties() throws IOException {
-        String propertiesPath = System.getProperty("user.dir") + "/config/browser.properties";
+        String propertiesPath = System.getProperty("user.dir") + "/config/config.properties";
         try {
             file = new FileInputStream(propertiesPath);
             prop = new Properties();
@@ -35,12 +42,18 @@ public class Base {
         }
     }
 
+    /*
+     * a. Method Name: openBrowser
+     * b. Author Name: Tanishk Maheshwari
+     * c. Description: This will be used to open the browser to start the application.
+     * d. Parameter: None
+     * e. Return Type: void
+     */
     public void openBrowser() {
 
         try {
             loadProperties();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         String executionType = prop.getProperty("executiontype");
@@ -87,11 +100,11 @@ public class Base {
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         }
-        // Dont remove the listener Object
 
         WebDriverListener listener = new EventHandler();
         driver = new EventFiringDecorator<>(listener).decorate(driver);
 
     }
+
 
 }
