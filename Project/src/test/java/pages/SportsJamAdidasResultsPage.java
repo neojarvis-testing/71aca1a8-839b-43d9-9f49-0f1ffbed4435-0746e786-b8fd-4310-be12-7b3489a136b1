@@ -99,7 +99,7 @@ public class SportsJamAdidasResultsPage {
         helper.clickOnElement(SportsJamAdidasResultsPageLocator.clearAllButton, "Clicked on Clear All button");
     }
 
-    public void adidasProductFilter(){
+    public void adidasProductsFilter(){
         clickOnSearchIcon();
         verifySearchBar();
         clickOnSearchBar();

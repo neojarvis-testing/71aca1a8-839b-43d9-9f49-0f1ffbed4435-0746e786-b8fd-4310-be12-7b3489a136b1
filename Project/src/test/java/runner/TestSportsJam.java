@@ -4,10 +4,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
+import pages.SportsJamAdidasResultsPage;
 import utils.Base;
 import utils.Reporter;
 
@@ -24,7 +26,7 @@ public class TestSportsJam extends Base{
      */
     @BeforeClass
     public void generate(){
-         report = Reporter.generateReport("SportsJam Report");
+         report = Reporter.generateReport("SPORT_JAM_Report");
     }
 
     /*
@@ -37,6 +39,20 @@ public class TestSportsJam extends Base{
     @BeforeMethod
     public void open(){
         openBrowser();
+    }
+
+    /*
+     * a. MethodName: adidasProductsFilterTest
+     * b. AuthorName: Sharath
+     * c. Description: This is used to run the tests of the pages.
+     * d. Parameters: None
+     * e. Return Type: None
+     */
+    @Test
+    public void adidasProductsFilterTest(){
+        test = report.createTest("adidasProductsFilterTest");
+        SportsJamAdidasResultsPage sportsJamAdidasResultsPage = new SportsJamAdidasResultsPage(test);
+        sportsJamAdidasResultsPage.adidasProductsFilter();
     }
 
     /*
