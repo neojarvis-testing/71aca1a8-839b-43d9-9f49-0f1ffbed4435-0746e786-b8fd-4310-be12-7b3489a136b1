@@ -230,4 +230,23 @@ public class WebDriverHelper {
 			test.log(Status.FAIL, message);
 		}
 	}
+	public List<WebElement> sendAllElements(By locator){
+        return driver.findElements(locator);
+    }
+	public void checkbox(By locator, String value, String message){
+		try {
+			List<WebElement> list = sendAllElements(locator);
+			for (WebElement element : list) {
+				if(element.getDomAttribute("value").equals(value)){
+					element.click();
+					LoggerHandler.info(message);
+					test.log(Status.PASS, message);
+					break;
+				}
+			}
+		} catch (Exception e) {
+			LoggerHandler.error(message);
+			test.log(Status.FAIL, message);
+		}
+    }
 }
