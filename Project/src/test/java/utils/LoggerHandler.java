@@ -67,7 +67,5 @@ public class LoggerHandler {
     public static void log(String message) {
         log.info(message); // Default to info level for generic logging
     }
- 
 }
- 
  
