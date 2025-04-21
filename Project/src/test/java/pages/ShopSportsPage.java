@@ -16,6 +16,7 @@ public class ShopSportsPage {
         helper=new WebDriverHelper(Base.driver, test);
     }
     public void HoverOnRacketSports(){
+        
         helper.hoverOverElement(ShopSportsLocators.racketSport, "Hovered On Racket Sports");
     }
     public void clickonShopSportswear(){
@@ -43,21 +44,21 @@ public class ShopSportsPage {
     public void clickonCompare1(){
         helper.clickOnElement(ShopSportsLocators.compare, "Clicked On Compare product 1");
     }
-    // public void verifyYouaddedproducttothecomparisonlist(){
-    //     // try {
-    //     //     String data=helper.getText(ShopSportsLocators.youaddedproducttocomparison, "Verified");
-    //     //     Assert.assertTrue(data.contains("You added product Yonex Mens Shorts (2692-Jet Black) to the "));
-    //     // } catch (Exception e) {
-    //     //     e.printStackTrace();
-    //     // }
-    // }
+    public void verifyYouaddedproducttothecomparisonlist(){
+        try {
+            String data=helper.getText(ShopSportsLocators.youaddedproducttocomparison, "Verified");
+            Assert.assertTrue(data.contains("YOU ADDED PRODUCT"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     public void clickonCompare2(){
         helper.clickOnElement(ShopSportsLocators.compare2, "Clicked On Compare Product 2");
     }
     public void verifyComapre2(){
         try {
             String data=helper.getText(ShopSportsLocators.youaddedproducttocomparison2, "Verified");
-            Assert.assertTrue(data.contains(data));
+            Assert.assertTrue(data.contains("YOU ADDED PRODUCT"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -74,7 +75,7 @@ public class ShopSportsPage {
         }
     }
     public void clickonX1(){
-        helper.clickOnElement(ShopSportsLocators.firstX, "Clicked On X1");
+        helper.clickOnElement(ShopSportsLocators.secondX, "Clicked On X1");
     }
     public void clickonOK1(){
         helper.clickOnElement(ShopSportsLocators.ok, "Clicked On ok1");
@@ -82,7 +83,7 @@ public class ShopSportsPage {
     public void verifyOK1(){
         try {
             String data=helper.getText(ShopSportsLocators.nolongerlisted, "Verified");
-            Assert.assertEquals(data,data);
+            Assert.assertTrue(data.contains("YOU REMOVED PRODUCT"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -96,7 +97,7 @@ public class ShopSportsPage {
     public void verifyOK2(){
         try {
             String data=helper.getText(ShopSportsLocators.nolongerlisted2, "Verified");
-            Assert.assertEquals(data,data);
+            Assert.assertTrue(data.contains("YOU REMOVED PRODUCT"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -104,7 +105,7 @@ public class ShopSportsPage {
     public void verifyMessage(){
         try {
             String data=helper.getText(ShopSportsLocators.noproductslisted, "Verified");
-            Assert.assertEquals(data,data);
+            Assert.assertTrue(data.contains("YOU HAVE NO ITEMS"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -116,7 +117,7 @@ public class ShopSportsPage {
         verifyURLClothing();
         clickonListView();
         clickonCompare1();
-        // verifyYouaddedproducttothecomparisonlist();
+        verifyYouaddedproducttothecomparisonlist();
         clickonCompare2();
         verifyComapre2();
         clickonCompareProductList();

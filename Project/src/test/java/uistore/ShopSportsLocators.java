@@ -8,17 +8,17 @@ public class ShopSportsLocators {
 	 public static By clothing=By.cssSelector("span.base");
 	 public static By ListByView=By.cssSelector("a#mode-list");
 	 public static By compare=By.xpath("//span[text()='Compare']");
-	 public static By youaddedproducttocomparison=By.xpath("//div[text()='You added product Yonex Mens Shorts (2692-Jet Black) to the ']");
+	 public static By youaddedproducttocomparison=By.xpath("//div[contains(text(),'You added product Yonex Mens Shorts (2692-Jet Black) to the ')]");
 	 public static By compare2=By.xpath("(//span[text()='Compare'])[2]");
-	 public static By youaddedproducttocomparison2=By.xpath("//div[text()='You added product Yonex Mens Shorts (2693-Jet Black) to the ']");
-	 public static By compareList=By.xpath("//div[text()='You added product Yonex Mens Shorts (2693-Jet Black) to the ']");
+	 public static By youaddedproducttocomparison2=By.xpath("//div[contains(text(),'You added product Yonex Mens Shorts (2693-Jet Black) to the')]");
+	 public static By compareList=By.xpath("//a[text()='comparison list']");
 	 public static By compareProducts=By.cssSelector("span.base");
-	 public static By firstX=By.xpath("//span[text()='Remove Product']");
+	 public static By firstX=By.xpath("//a[@class='action delete']");
 	 public static By ok=By.cssSelector("button.action-primary");
-     public static By nolongerlisted=By.xpath("//div[text()='You removed product Yonex Mens Shorts (2693-Jet Black) from the comparison list.']");
-     public static By secondX=By.xpath("(//span[text()='Remove Product'])[2]");
-     public static By ok2=By.xpath("//span[text()='OK']");
-     public static By nolongerlisted2=By.xpath("//div[text()='You removed product Yonex Mens Shorts (2692-Jet Black) from the comparison list.']");
+     public static By nolongerlisted=By.xpath("//div[contains(text(),'You removed product Yonex Mens Sh')]");
+     public static By secondX=By.xpath("//a[@class='action delete']");
+     public static By ok2=By.cssSelector("button.action-primary");
+     public static By nolongerlisted2=By.xpath("//div[contains(text(),'You removed product Yonex Mens Shorts (2692-Jet Black)')]");
      public static By noproductslisted=By.xpath("//div[text()='You have no items to compare.']");
 
 
