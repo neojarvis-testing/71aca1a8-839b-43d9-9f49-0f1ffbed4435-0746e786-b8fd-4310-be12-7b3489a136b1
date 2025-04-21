@@ -232,6 +232,24 @@ public class WebDriverHelper {
 			test.log(Status.FAIL, message);
 		}
 	}
+
+  public void verifyPageUrl(String expectedUrl,String message) {
+        try 
+		{
+			String PageUrl = driver.getCurrentUrl();
+			System.out.println(PageUrl);
+			System.out.println(expectedUrl);
+			Assert.assertEquals(PageUrl, expectedUrl);
+
+			LoggerHandler.info(message);
+			test.log(Status.PASS, message);
+		} 
+		catch (AssertionError e) 
+		{
+			LoggerHandler.error(message);
+			test.log(Status.FAIL, message);	
+		}
+    }
 	public List<WebElement> sendAllElements(By locator){
         return driver.findElements(locator);
     }

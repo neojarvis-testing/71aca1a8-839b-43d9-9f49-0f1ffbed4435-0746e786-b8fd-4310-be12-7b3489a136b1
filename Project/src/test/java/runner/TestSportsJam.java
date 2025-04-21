@@ -1,10 +1,21 @@
 package runner;
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+
+import pages.SportsJamMensShoesPage;
+import pages.SportsJamPumaWomenSportsPage;
+import utils.Base;
+import utils.Reporter;
+import utils.Screenshot;
+ 
+public class TestSportsJam extends Base{
+    public static ExtentReports report;
+ 
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -23,7 +34,7 @@ public class TestSportsJam extends Base{
      * b. AuthorName: Sharath
      * c. Description: This is used in creating a HTML report before running all the testCases.
      * d. Parameters: None
-     * e. Return Type: void
+     * e. Return Type: None
      */
     @BeforeClass
     public void generate(){
@@ -41,6 +52,38 @@ public class TestSportsJam extends Base{
     public void open(){
         openBrowser();
     }
+ 
+    /*
+     * a. MethodName: SportsJamWomenSportsCase
+     * b. AuthorName: Sharath
+     * c. Description: This is used to run the tests of the pages.
+     * d. Parameters: None
+     * e. Return Type: None
+     */
+    @Test(enabled = true)
+    public void SportsJamWomenSportsCase(){
+        ExtentTest test = report.createTest("Puma Brand Page Test");
+        SportsJamPumaWomenSportsPage sportsJamPumaWomenSportsPage = new SportsJamPumaWomenSportsPage(driver,test);
+        sportsJamPumaWomenSportsPage.runWomenSportsCase();
+        Screenshot.captureScreenShot("Women Sports");
+        Reporter.attachScreenshotToReport("Women Sports",test,"WOmen Shoes Screenshot have been captured");
+    }
+
+
+    /*
+     * a. MethodName: SprotsJamBadmintonPageVerificationCase
+     * b. AuthorName: Sharath
+     * c. Description: This is used to run the tests of the badminton shoes pages.
+     * d. Parameters: None
+     * e. Return Type: None
+     */
+    @Test(enabled = true)
+    public void SprotsJamBadmintonPageVerificationCase(){
+        ExtentTest test = report.createTest("Shoes Page Test");
+        SportsJamMensShoesPage  sportsJamMensShoesPage = new SportsJamMensShoesPage(driver,test);
+        sportsJamMensShoesPage.runMensShoesCase();
+        Screenshot.captureScreenShot("squash");
+        Reporter.attachScreenshotToReport("squash",test,"Squash Screenshot have been captured");
 
     /*
      * a. MethodName: adidasProductsFilterTest
@@ -93,4 +136,4 @@ public class TestSportsJam extends Base{
     public void flush(){
         report.flush();
     }
-}
+
