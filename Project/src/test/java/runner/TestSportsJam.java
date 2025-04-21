@@ -13,9 +13,9 @@ import pages.SportsJamMensShoesPage;
 import pages.SportsJamPumaWomenSportsPage;
 import utils.Base;
 import utils.Reporter;
+import utils.Screenshot;
  
 public class TestSportsJam extends Base{
-    public static ExtentTest test;
     public static ExtentReports report;
  
     /*
@@ -43,34 +43,38 @@ public class TestSportsJam extends Base{
     }
  
     /*
-     * a. MethodName: adidasProductsFilterTest
+     * a. MethodName: SportsJamWomenSportsCase
      * b. AuthorName: Sharath
      * c. Description: This is used to run the tests of the pages.
      * d. Parameters: None
      * e. Return Type: None
      */
-    //@Test
+    @Test(enabled = true)
     public void SportsJamWomenSportsCase(){
-        test = report.createTest("Puma Brand Page Test");
+        ExtentTest test = report.createTest("Puma Brand Page Test");
         SportsJamPumaWomenSportsPage sportsJamPumaWomenSportsPage = new SportsJamPumaWomenSportsPage(driver,test);
         sportsJamPumaWomenSportsPage.runWomenSportsCase();
+        Screenshot.captureScreenShot("Women Sports");
+        Reporter.attachScreenshotToReport("Women Sports",test,"WOmen Shoes Screenshot have been captured");
     }
 
 
     /*
-     * a. MethodName: adidasProductsFilterTest
+     * a. MethodName: SprotsJamBadmintonPageVerificationCase
      * b. AuthorName: Sharath
-     * c. Description: This is used to run the tests of the pages.
+     * c. Description: This is used to run the tests of the badminton shoes pages.
      * d. Parameters: None
      * e. Return Type: None
      */
-    @Test
+    @Test(enabled = true)
     public void SprotsJamBadmintonPageVerificationCase(){
-        test = report.createTest("Shoes Page Test");
+        ExtentTest test = report.createTest("Shoes Page Test");
         SportsJamMensShoesPage  sportsJamMensShoesPage = new SportsJamMensShoesPage(driver,test);
         sportsJamMensShoesPage.runMensShoesCase();
+        Screenshot.captureScreenShot("squash");
+        Reporter.attachScreenshotToReport("squash",test,"Squash Screenshot have been captured");
     }
- 
+
     /*
      * a. MethodName: close
      * b. AuthorName: Sharath
@@ -80,7 +84,7 @@ public class TestSportsJam extends Base{
      */
     @AfterMethod
     public void close(){
-        // driver.quit();
+        driver.quit();
     }
  
     /*

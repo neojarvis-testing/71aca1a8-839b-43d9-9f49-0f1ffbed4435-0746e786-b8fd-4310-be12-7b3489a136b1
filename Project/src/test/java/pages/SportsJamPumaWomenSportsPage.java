@@ -9,6 +9,7 @@ import uistore.PumaProductPageLocators;
 import uistore.SportsJamBrandPageLocators;
 import uistore.SportsJamCustomerLoginLocators;
 import uistore.SportsJamHomePageLocators;
+import utils.Base;
 import utils.ExcelReader;
 import utils.WebDriverHelper;
 
@@ -125,7 +126,8 @@ public class SportsJamPumaWomenSportsPage {
     private void verifyAccessoiresTextInFilter() 
     {
         String text = webDriverHelper.getText(PumaProductPageLocators.accessoriesText, "Retrieved Accessories text from element");
-        Assert.assertTrue(text.contains("Accessories"));
+        System.out.println(text);
+        Assert.assertTrue(text.toLowerCase().contains("accessories"));
     }
 
     private void hoverOverPumaWomenSportQuartersAssorted() 
@@ -151,23 +153,27 @@ public class SportsJamPumaWomenSportsPage {
     private void clickOnWishList() 
     {
         webDriverHelper.clickOnElement(PumaProductPageLocators.wishlist, "Clicked On WishList");
+        webDriverHelper.exitIFrame("exited form iframe");
     }
 
     private void verifyLoginPromptMessage() 
     {
         String text = webDriverHelper.getText(SportsJamCustomerLoginLocators.promtMessage, "Retrieved Prompt message");
-        Assert.assertTrue(text.contains("You must login or register to add items to your wishlist."));
+        System.out.println(text);
+        Assert.assertTrue(text.toLowerCase().contains("you must login or register to add items to your wishlist."));
     }
 
     private void clickAndSendDataToEmail() 
     {
         // ExcelReader.getCellData("CustomerLogin",0,0);
+        webDriverHelper.clickOnElement(SportsJamCustomerLoginLocators.email, "Clicked On email");
         webDriverHelper.sendData(SportsJamCustomerLoginLocators.email,"test134@gmail.com","Sent email to input field");
     }
 
     private void clickAndSendDataToPassword() 
     {
         // ExcelReader.getCellData("CustomerLogin",1,0);
+        webDriverHelper.clickOnElement(SportsJamCustomerLoginLocators.password, "Clicked On password");
         webDriverHelper.sendData(SportsJamCustomerLoginLocators.password, "test140@ga", "Sent data to password field");
     }
 
@@ -178,7 +184,9 @@ public class SportsJamPumaWomenSportsPage {
 
     private void verifyTheErrorMessage() 
     {
-        String text = webDriverHelper.getText(SportsJamCustomerLoginLocators.promtMessage,"Retrieved data form prompt ext");
+        String text = webDriverHelper.getText(SportsJamCustomerLoginLocators.signInText,"Retrieved data form signin text");
+        System.out.println(text);
+        Assert.assertTrue(text.contains("THE ACCOUNT SIGN-IN WAS INCORRECT OR YOUR ACCOUNT IS DISABLED TEMPORARILY. PLEASE WAIT AND TRY AGAIN LATER."));
 
     }
 
