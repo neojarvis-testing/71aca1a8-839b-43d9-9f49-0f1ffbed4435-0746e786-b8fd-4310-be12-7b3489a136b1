@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class SportsJamHomePageLocator {
     public static By searchIcon = By.cssSelector("a>span.search-icon-wrapper");
-    public static By searchBar = By.id("#search");
+    public static By searchBar = By.xpath("//input[@class='input-text js-input-focus']");
     public static By placeholderSearchBar = By.xpath("//input[@placeholder='Search']");
     public static By goButton = By.xpath("//span[text()='Go']");
     public static By racketSports = By.cssSelector("a[href='https://sportsjam.in/racket-sports']");

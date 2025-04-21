@@ -10,6 +10,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
 import pages.SportsJamAdidasResultsPage;
+import pages.SportsJamBadmintonPage;
 import utils.Base;
 import utils.Reporter;
 
@@ -22,7 +23,7 @@ public class TestSportsJam extends Base{
      * b. AuthorName: Sharath
      * c. Description: This is used in creating a HTML report before running all the testCases.
      * d. Parameters: None
-     * e. Return Type: None
+     * e. Return Type: void
      */
     @BeforeClass
     public void generate(){
@@ -34,7 +35,7 @@ public class TestSportsJam extends Base{
      * b. AuthorName: Sharath
      * c. Description: This is used in opening the browser Interfaces
      * d. Parameters: None
-     * e. Return Type: None
+     * e. Return Type: void
      */
     @BeforeMethod
     public void open(){
@@ -43,10 +44,10 @@ public class TestSportsJam extends Base{
 
     /*
      * a. MethodName: adidasProductsFilterTest
-     * b. AuthorName: Sharath
+     * b. AuthorName: Tanishk Maheshwari
      * c. Description: This is used to run the tests of the pages.
      * d. Parameters: None
-     * e. Return Type: None
+     * e. Return Type: void
      */
     @Test
     public void adidasProductsFilterTest(){
@@ -56,11 +57,25 @@ public class TestSportsJam extends Base{
     }
 
     /*
+     * a. MethodName: addProductsToCartTest
+     * b. AuthorName: Tanishk Maheshwari
+     * c. Description: This is used to run the tests of the pages.
+     * d. Parameters: None
+     * e. Return Type: void
+     */
+    @Test
+    public void addProductsToCartTest(){
+        test = report.createTest("addProductsToCartTest");
+        SportsJamBadmintonPage sportsJamBadmintonPage = new SportsJamBadmintonPage(test);
+        sportsJamBadmintonPage.addProductsToCart();
+    }
+
+    /*
      * a. MethodName: close
      * b. AuthorName: Sharath
      * c. Description: This is used in closing the browser Interfaces
      * d. Parameters: None
-     * e. Return Type: None
+     * e. Return Type: void
      */
     @AfterMethod
     public void close(){
@@ -72,7 +87,7 @@ public class TestSportsJam extends Base{
      * b. AuthorName: Sharath
      * c. Description: This is used in dumping all the test cases into the report.
      * d. Parameters: None
-     * e. Return Type: None
+     * e. Return Type: void
      */
     @AfterClass
     public void flush(){
