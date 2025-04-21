@@ -3,7 +3,7 @@ package uistore;
 import org.openqa.selenium.By;
 
 public class SportsJamAdidasResultsPageLocator {
-    public static By adidasHeading = By.xpath("//span[@class='base']");
+    public static By adidasHeading = By.cssSelector("span.base");
     public static By filterCategoryRacketSports = By.xpath("//span[text()='Racket Sports' and @class='label']");
     public static By filterCategoryRacketSportsLabel = By.xpath("//span[text()='Racket Sports' and @class='filter-value']");
     public static By filterCategoryShoes = By.xpath("//span[text()='Shoes' and @class='label']");
