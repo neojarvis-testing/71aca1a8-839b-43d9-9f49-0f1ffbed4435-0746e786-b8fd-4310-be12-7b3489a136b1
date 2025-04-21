@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -230,4 +231,19 @@ public class WebDriverHelper {
 			test.log(Status.FAIL, message);
 		}
 	}
+    public void verifyPageUrl(String expectedUrl,String message) {
+        try 
+		{
+			String PageUrl = driver.getCurrentUrl();
+			Assert.assertEquals(PageUrl, expectedUrl);
+
+			LoggerHandler.info(message);
+			test.log(Status.PASS, message);
+		} 
+		catch (AssertionError e) 
+		{
+			LoggerHandler.error(message);
+			test.log(Status.FAIL, message);	
+		}
+    }
 }

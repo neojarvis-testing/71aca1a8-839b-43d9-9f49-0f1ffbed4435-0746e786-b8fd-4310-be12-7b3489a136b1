@@ -1,14 +1,20 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+
+import com.aventstack.extentreports.ExtentTest;
+
+import uistore.SportsJamPumaWomenSportsPageLocators;
 import utils.WebDriverHelper;
 
 public class SportsJamPumaWomenSportsPage {
 
     WebDriverHelper webDriverHelper;
 
-    public SportsJamPumaWomenSportsPage()
+    public SportsJamPumaWomenSportsPage(WebDriver driver, ExtentTest test)
     {
-        
+        webDriverHelper = new WebDriverHelper(driver, test);
     }
 
     public void runWomenSportsCase()
@@ -25,7 +31,7 @@ public class SportsJamPumaWomenSportsPage {
 
         clickOnSearchIcon();
 
-        verifyURLForPuma();
+        verifyTextForPuma();
 
         clickOnPuma();
 
@@ -56,90 +62,111 @@ public class SportsJamPumaWomenSportsPage {
         verifyTheErrorMessage();
     }
 
-    private void verifyHomePageURL() {
+    private void verifyHomePageURL() 
+    {
+        webDriverHelper.verifyPageUrl("page url from excel","Home page url is verified");
+    }
+    
+    private void clickOnBrand() 
+    {
+        webDriverHelper.clickOnElement(SportsJamPumaWomenSportsPageLocators.brand, "click on brand");
+    }
+    
+    private void verifyBrandsPageURL() 
+    {
+        webDriverHelper.verifyPageUrl("page url from excel","Brand page url is verified");
+        
+    }
+
+    private void clickOnSearchBar() 
+    {
+        webDriverHelper.clickOnElement(SportsJamPumaWomenSportsPageLocators.searchBar, "click on searchbar");
+    }
+    
+    private void sendDataToSearchBar() 
+    {
+        webDriverHelper.sendData(SportsJamPumaWomenSportsPageLocators.searchBar,"Puma", "click on searchbar");
+    }
+
+    private void clickOnSearchIcon() 
+    {
+        webDriverHelper.clickOnElement(SportsJamPumaWomenSportsPageLocators.searchIcon, "click on search icon");
+    }
+
+    private void verifyTextForPuma() 
+    {
+        String text = webDriverHelper.getText(SportsJamPumaWomenSportsPageLocators.pumaText,"puma text is retrieved form element");
+        Assert.assertTrue(text.contains("Puma"));
+    }
+
+    private void clickOnPuma() 
+    {
+        webDriverHelper.clickOnElement(SportsJamPumaWomenSportsPageLocators.pumaImage, null);
+    }
+
+    private void verifyThePumaPage() 
+    {
 
     }
 
-    private void clickOnBrand() {
+    private void clickOnAccesories() 
+    {
+        webDriverHelper.clickOnElement(, null);
+    }
+
+    private void verifyAccessoiresTextInFilter() 
+    {
 
     }
 
-    private void verifyBrandsPageURL() {
+    private void hoverOverPumaWomenSportQuartersAssorted() 
+    {
 
     }
 
-    private void clickOnSearchBar() {
+    private void clickOnQuickView() 
+    {
 
     }
 
-    private void sendDataToSearchBar() {
+    private void switchToIframe() 
+    {
 
     }
 
-    private void clickOnSearchIcon() {
+    private void verifyIFrameURL() 
+    {
 
     }
 
-    private void verifyURLForPuma() {
+    private void clickOnWishList() 
+    {
 
     }
 
-    private void clickOnPuma() {
+    private void verifyLoginPromptMessage() 
+    {
 
     }
 
-    private void verifyThePumaPage() {
+    private void clickAndSendDataToEmail() 
+    {
 
     }
 
-    private void clickOnAccesories() {
+    private void clickAndSendDataToPassword() 
+    {
 
     }
 
-    private void verifyAccessoiresTextInFilter() {
+    private void clickOnSignIn() 
+    {
 
     }
 
-    private void hoverOverPumaWomenSportQuartersAssorted() {
+    private void verifyTheErrorMessage() 
+    {
 
     }
-
-    private void clickOnQuickView() {
-
-    }
-
-    private void switchToIframe() {
-
-    }
-
-    private void verifyIFrameURL() {
-
-    }
-
-    private void clickOnWishList() {
-
-    }
-
-    private void verifyLoginPromptMessage() {
-
-    }
-
-    private void clickAndSendDataToEmail() {
-
-    }
-
-    private void clickAndSendDataToPassword() {
-
-    }
-
-    private void clickOnSignIn() {
-
-    }
-
-    private void verifyTheErrorMessage() {
-
-    }
-
-
 
 }
