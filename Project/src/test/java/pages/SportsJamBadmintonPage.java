@@ -6,6 +6,7 @@ import uistore.SportsJamBadmintonRacketsResultsPageLocator;
 import uistore.SportsJamBadmintonShoesResultsPageLocator;
 import uistore.SportsJamHomePageLocator;
 import utils.Base;
+import utils.ExcelReader;
 import utils.Screenshot;
 import utils.WebDriverHelper;
 
@@ -49,7 +50,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyBadmintonRackets(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.headingBadmintonRackets, "Page verified");
-        helper.checkAssert(text, "BADMINTON RACKETS", "Heading verified");
+        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 7, 0), "Heading verified");
     }
 
     /*
@@ -77,7 +78,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyProductPage(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.headingProductNumberOne, "Heading verified");
-        helper.checkAssert(text, "YONEX ARCSABER 2 FEEL", "Heading verified");
+        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 8, 0), "Heading verified");
     }
 
     /*
@@ -89,7 +90,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyAddToCartButton(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.addToCartButtonLabel, "Button verified");
-        helper.checkAssert(text, "CART", "Button verified");
+        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 9, 0), "Button verified");
     }
 
     /*
@@ -124,7 +125,7 @@ public class SportsJamBadmintonPage {
     public void verifyConfirmationMessageInPopUp(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.confirmationMessageInCartPopUp, "Message verified");
         System.out.println(text+" no text");
-        helper.checkAssert(text, "Product added to cart", "Message verified");
+        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 10, 0), "Message verified");
     }
 
     /*
@@ -136,7 +137,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyConfirmationMessageInPage(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.confirmationMessageInPage, "Message verified");
-        helper.checkAssert(text, "YONEX", "Message verified");
+        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 11, 0), "Message verified");
     }
 
     /*
@@ -148,7 +149,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyZIPCodeError(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.errorMessageEmptyZipcode, "Error message verified");
-        helper.checkAssert(text, "ZIPCODE", "Error message verified");
+        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 12, 0), "Error message verified");
     }
 
     /*
@@ -159,7 +160,7 @@ public class SportsJamBadmintonPage {
      * e. Return Type: void
      */
     public void clickOnZipCodeInputBox(){
-        helper.clickOnElement(SportsJamBadmintonRacketsResultsPageLocator.zipcode, "Clicked on ZIP Code input box");
+        helper.clickOnElement(SportsJamBadmintonRacketsResultsPageLocator.zipCode, "Clicked on ZIP Code input box");
     }
 
     /*
@@ -170,7 +171,7 @@ public class SportsJamBadmintonPage {
      * e. Return Type: void
      */
     public void sendInputInZIPCodeInputBox(){
-        helper.sendData(SportsJamBadmintonRacketsResultsPageLocator.zipcode, "641001", "Input sent");
+        helper.sendData(SportsJamBadmintonRacketsResultsPageLocator.zipCode, ExcelReader.getCellData("InputData", 0, 0), "Input sent");
     }
 
     /*
@@ -181,7 +182,7 @@ public class SportsJamBadmintonPage {
      * e. Return Type: void
      */
     public void clickOnCheckButton(){
-        helper.clickOnElement(SportsJamBadmintonRacketsResultsPageLocator.checkZipcodeButton, "Clicked on Check Button");
+        helper.clickOnElement(SportsJamBadmintonRacketsResultsPageLocator.checkZipCodeButton, "Clicked on Check Button");
     }
 
     /*
@@ -204,7 +205,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyBadmintonShoes(){
         String text = Base.driver.getCurrentUrl();
-        helper.checkAssert(text.toLowerCase(), "shoes", "Badminton shoes in page is verified");
+        helper.checkAssert(text.toLowerCase(), ExcelReader.getCellData("AssertData", 13, 0), "Badminton shoes in page is verified");
     }
 
     /*
@@ -239,7 +240,7 @@ public class SportsJamBadmintonPage {
     public void verifyErrorMessage(){
         Screenshot.captureScreenShot("WithoutSizeShoes");
         String text = helper.getText(SportsJamBadmintonShoesResultsPageLocator.errorMessageWithoutSize, "Error message is verified");
-        helper.checkAssert(text.toLowerCase(), "required", "Error message is verified");
+        helper.checkAssert(text.toLowerCase(), ExcelReader.getCellData("AssertData", 14, 0), "Error message is verified");
     }
 
     /*

@@ -12,6 +12,6 @@ public class SportsJamBadmintonRacketsResultsPageLocator {
     public static By confirmationMessageInCartPopUp = By.xpath("//span[contains(text(),'Product added t')]");
     public static By confirmationMessageInPage = By.xpath("//div[contains(text(), 'You added Yonex Arcsaber 2 Feel Badminton Racket (Strung, Black/Green) to your')]");
     public static By errorMessageEmptyZipcode = By.xpath("//div[@class='message error']");
-    public static By zipcode = By.xpath("//input[@id='zipcode']");
-    public static By checkZipcodeButton = By.xpath("//button[@class='action primary']");
+    public static By zipCode = By.xpath("//input[@id='zipcode']");
+    public static By checkZipCodeButton = By.xpath("//button[@class='action primary']");
 }

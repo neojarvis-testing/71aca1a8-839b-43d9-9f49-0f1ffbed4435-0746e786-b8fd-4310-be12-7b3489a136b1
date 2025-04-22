@@ -324,10 +324,6 @@ public class WebDriverHelper {
 		}
     }
 	public void enterData(By path) {
-		try {
-            driver.findElement(path).sendKeys(Keys.ENTER);
-        } catch (Exception e) {
-            LoggerHandler.error("Enter data is not working");
-        }
-	}
+        driver.findElement(path).sendKeys(Keys.ENTER);
+    }
 }
