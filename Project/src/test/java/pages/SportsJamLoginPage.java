@@ -4,7 +4,7 @@ import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
 
-import uistore.LoginLocators;
+import uistore.SportsJamLoginLocators;
 import utils.Base;
 import utils.WebDriverHelper;
 
@@ -20,9 +20,7 @@ public class SportsJamLoginPage {
     {
         try {
             helper.jsScrollUsingPixel(0, 10000, "Scrolled to Login");
-            //helper.waitForElementToBeVisible(LoginLocators.login, 15);
-            helper.clickOnElement(LoginLocators.login,"Clicked on login");
-            //Thread.sleep(1500);
+            helper.clickOnElement(SportsJamLoginLocators.login,"Clicked on login");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -39,7 +37,7 @@ public class SportsJamLoginPage {
     public void clickondelivery()
     {
         helper.jsScrollUsingPixel(0, 10000, "Scrolled to delivery");
-        helper.clickOnElement(LoginLocators.delivery,"Clicked on delivery&charges");
+        helper.clickOnElement(SportsJamLoginLocators.delivery,"Clicked on delivery&charges");
     }
     public void verifydelivery()
     {
@@ -53,7 +51,7 @@ public class SportsJamLoginPage {
     public void clickonpayment()
     {
         helper.jsScrollUsingPixel(0, 10000, "Scrolled to payment");
-        helper.clickOnElement(LoginLocators.payment,"Clicked on PaymentOptions");
+        helper.clickOnElement(SportsJamLoginLocators.payment,"Clicked on PaymentOptions");
     }
     public void verifypayment()
     {
@@ -67,7 +65,7 @@ public class SportsJamLoginPage {
     public void clickonFAQ()
     {
         helper.jsScrollUsingPixel(0, 10000, "Scrolled to FAQs");
-        helper.clickOnElement(LoginLocators.FAQs,"Clicked on FAQ");
+        helper.clickOnElement(SportsJamLoginLocators.FAQs,"Clicked on FAQ");
     }
     public void verifyFAQ()
     {
@@ -81,7 +79,7 @@ public class SportsJamLoginPage {
     public void clickonPolicy()
     {
         helper.jsScrollUsingPixel(0, 10000, "Scrolled to Returns");
-        helper.clickOnElement(LoginLocators.policy,"Clicked on Returns Policy");
+        helper.clickOnElement(SportsJamLoginLocators.policy,"Clicked on Returns Policy");
     }
     public void verifyPolicy()
     {

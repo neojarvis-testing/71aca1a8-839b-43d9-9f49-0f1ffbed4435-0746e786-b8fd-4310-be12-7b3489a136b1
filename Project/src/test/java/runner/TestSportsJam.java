@@ -10,6 +10,8 @@ import com.aventstack.extentreports.ExtentTest;
 import pages.ShopSportsPage;
 import pages.SportsJamAdidasResultsPage;
 import pages.SportsJamBadmintonPage;
+import pages.SportsJamFooterPage;
+import pages.SportsJamLoginPage;
 import pages.SportsJamMensShoesPage;
 import pages.SportsJamPumaWomenSportsPage;
 import utils.Base;
@@ -53,7 +55,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: None
      */
-    @Test(enabled = true)
+    //@Test(enabled = true)
     public void SportsJamWomenSportsCase(){
         ExtentTest test = report.createTest("Puma Brand Page Test");
         SportsJamPumaWomenSportsPage sportsJamPumaWomenSportsPage = new SportsJamPumaWomenSportsPage(driver,test);
@@ -70,7 +72,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: None
      */
-    @Test(enabled = true)
+    //@Test(enabled = true)
     public void SprotsJamBadmintonPageVerificationCase(){
         ExtentTest test = report.createTest("Shoes Page Test");
         SportsJamMensShoesPage  sportsJamMensShoesPage = new SportsJamMensShoesPage(driver,test);
@@ -86,7 +88,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test
+    //@Test
     public void adidasProductsFilterTest(){
         test = report.createTest("adidasProductsFilterTest");
         SportsJamAdidasResultsPage sportsJamAdidasResultsPage = new SportsJamAdidasResultsPage(test);
@@ -100,18 +102,48 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test
+    //@Test
     public void addProductsToCartTest(){
         test = report.createTest("addProductsToCartTest");
         SportsJamBadmintonPage sportsJamBadmintonPage = new SportsJamBadmintonPage(test);
         sportsJamBadmintonPage.addProductsToCart();
     }
 
-    @Test
+    //@Test
     public void testcase3(){
         test=report.createTest("testcase3");
         ShopSportsPage ssp=new ShopSportsPage(test);
         ssp.testcase3();
+    }
+
+    /*
+     * a. MethodName: navigatetest
+     * b. AuthorName: Srujana Makam
+     * c. Description: This is used to run the tests of the Login page.
+     * d. Parameters: None
+     * e. Return Type: void
+     */
+    @Test
+    public void navigatetest()
+    {
+        test=report.createTest("NavigateTest");
+        SportsJamLoginPage lpage=new SportsJamLoginPage(test);
+        lpage.testlogin();
+    }
+
+     /*
+     * a. MethodName: switchtest
+     * b. AuthorName: Srujana Makam
+     * c. Description: This is used to run the tests of the Footer page.
+     * d. Parameters: None
+     * e. Return Type: void
+     */
+    @Test
+    public void switchtest()
+    {
+        test=report.createTest("SwitchTest");
+        SportsJamFooterPage fpage=new SportsJamFooterPage(test);
+        fpage.switchtest();
     }
 
     /*
@@ -137,6 +169,4 @@ public class TestSportsJam extends Base
     public void flush(){
         report.flush();
     }
-}
-
 }

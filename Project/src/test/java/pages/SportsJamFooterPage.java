@@ -2,7 +2,7 @@ package pages;
 
 import com.aventstack.extentreports.ExtentTest;
 
-import uistore.FooterLocators;
+import uistore.SportsJamFooterLocators;
 import utils.Base;
 import utils.WebDriverHelper;
 
@@ -17,7 +17,7 @@ public class SportsJamFooterPage {
     public void clickonfacebook()
     {
         helper.jsScrollUsingPixel(0, 10000, "Scrolled to facebook");
-        helper.clickOnElement(FooterLocators.facebook, "Clicked on facebook");
+        helper.clickOnElement(SportsJamFooterLocators.facebook, "Clicked on facebook");
         helper.switchToNewWindow();
     }
     public void backfromfb()
@@ -27,7 +27,7 @@ public class SportsJamFooterPage {
     public void clickonutube()
     {
         helper.jsScrollUsingPixel(0, 10000, "Scrolled to youtube");
-        helper.clickOnElement(FooterLocators.youtube, "Clicked on youtube");
+        helper.clickOnElement(SportsJamFooterLocators.youtube, "Clicked on youtube");
         helper.switchToNewWindow();
     }
     public void backfromut()
