@@ -1,6 +1,9 @@
 package utils;
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Base64;
+import java.util.Date;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -46,8 +49,9 @@ public class Reporter extends Base {
      */
     private static ExtentReports createExtentReport(String reportName) {
         if (extentReport == null) {
+            String time = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
             String reportsPath = System.getProperty("user.dir") + "/reports/";
-            String report = reportsPath + reportName + ".html"; 
+            String report = reportsPath + reportName +"_"+time+ "_.html"; 
             File reportsDir = new File(reportsPath);
             if (!reportsDir.exists()) {
                 reportsDir.mkdirs();
@@ -78,12 +82,12 @@ public class Reporter extends Base {
     }
     /*
      * AuthorName: Srujana Makam
-     * MethodName:attachScreenshotToReport
+     * MethodName:attachBase64ScreenshotToReport
      * Description:A method to attach screenshot to report 
      * Parameters:reportName,test,description
      * Return Type:ExtentReport
      */
-    public static void attachScreenshotToReport(String reportName, ExtentTest test, String description) {
+    public static void attachBase64ScreenshotToReport(String reportName, ExtentTest test, String description) {
         try {
             String base64Screenshot = takeScreenshotAsBase64();
             if (!base64Screenshot.isEmpty()) {
@@ -94,5 +98,51 @@ public class Reporter extends Base {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    /*
+     * AuthorName: Srujana Makam
+     * MethodName:attachScreenshotToReport
+     * Description:A method to attach screenshot to report 
+     * Parameters:reportName,test,description
+     * Return Type:ExtentReport
+     */
+    public static void attachScreenshotToReport(String filename, ExtentTest test, String description) {
+        try 
+        {
+            test.log(Status.INFO, description, MediaEntityBuilder.createScreenCaptureFromPath(TakeScreenshot(filename)).build());
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+	}
+    /*
+     * AuthorName: Srujana Makam
+     * MethodName:TakeScreenshot
+     * Description:A method to attach screenshot to report 
+     * Parameters:reportName,test,description
+     * Return Type:ExtentReport
+     */
+    public static String TakeScreenshot(String filename) {
+        try
+        {
+            String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+            String name = filename + timestamp + ".png";
+            String destPath =  "./"+name;
+            TakesScreenshot ts = (TakesScreenshot) driver;
+            File file = ts.getScreenshotAs(OutputType.FILE);
+            File screenshotsDir = new File(System.getProperty("user.dir") + "/reports/screenshots");
+            if (!screenshotsDir.exists()) 
+            {
+                screenshotsDir.mkdirs();
+            }
+            File target = new File(screenshotsDir, name);
+            FileUtils.copyFile(file, target); 
+            return destPath;
+        }
+        catch (Exception e) 
+        {
+			e.printStackTrace();
+		}
+		return "";
     }
 }

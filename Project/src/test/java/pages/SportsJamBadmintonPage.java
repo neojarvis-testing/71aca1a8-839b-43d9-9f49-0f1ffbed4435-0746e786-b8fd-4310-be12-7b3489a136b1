@@ -50,6 +50,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyBadmintonRackets(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.headingBadmintonRackets, "Page verified");
+        System.out.println(text);
         helper.checkAssert(text, ExcelReader.getCellData("AssertData", 7, 0), "Heading verified");
     }
 
@@ -63,10 +64,10 @@ public class SportsJamBadmintonPage {
     public void clickOnProductNumberOne(){
         try {
             Thread.sleep(2000);
+            helper.clickOnElement(SportsJamBadmintonRacketsResultsPageLocator.productNumberOne, "Clicked on product");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        helper.clickOnElement(SportsJamBadmintonRacketsResultsPageLocator.productNumberOne, "Clicked on product");
     }
 
     /*
@@ -78,6 +79,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyProductPage(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.headingProductNumberOne, "Heading verified");
+        System.out.println(text);
         helper.checkAssert(text, ExcelReader.getCellData("AssertData", 8, 0), "Heading verified");
     }
 
@@ -90,6 +92,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyAddToCartButton(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.addToCartButtonLabel, "Button verified");
+        System.out.println(text);
         helper.checkAssert(text, ExcelReader.getCellData("AssertData", 9, 0), "Button verified");
     }
 
@@ -137,6 +140,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyConfirmationMessageInPage(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.confirmationMessageInPage, "Message verified");
+        System.out.println(text);
         helper.checkAssert(text, ExcelReader.getCellData("AssertData", 11, 0), "Message verified");
     }
 
@@ -149,6 +153,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyZIPCodeError(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.errorMessageEmptyZipcode, "Error message verified");
+        System.out.println(text);
         helper.checkAssert(text, ExcelReader.getCellData("AssertData", 12, 0), "Error message verified");
     }
 
@@ -161,6 +166,7 @@ public class SportsJamBadmintonPage {
      */
     public void clickOnZipCodeInputBox(){
         helper.clickOnElement(SportsJamBadmintonRacketsResultsPageLocator.zipCode, "Clicked on ZIP Code input box");
+        helper.takeScreenshot("ZIp Code clicked","Clicked on zipcode");
     }
 
     /*
@@ -205,6 +211,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyBadmintonShoes(){
         String text = Base.driver.getCurrentUrl();
+        System.out.println(text);
         helper.checkAssert(text.toLowerCase(), ExcelReader.getCellData("AssertData", 13, 0), "Badminton shoes in page is verified");
     }
 
@@ -240,6 +247,7 @@ public class SportsJamBadmintonPage {
     public void verifyErrorMessage(){
         Screenshot.captureScreenShot("WithoutSizeShoes");
         String text = helper.getText(SportsJamBadmintonShoesResultsPageLocator.errorMessageWithoutSize, "Error message is verified");
+        System.out.println(text);
         helper.checkAssert(text.toLowerCase(), ExcelReader.getCellData("AssertData", 14, 0), "Error message is verified");
     }
 

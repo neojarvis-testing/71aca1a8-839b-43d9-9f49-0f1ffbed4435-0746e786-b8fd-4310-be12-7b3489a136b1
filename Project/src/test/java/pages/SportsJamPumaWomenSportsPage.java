@@ -11,15 +11,19 @@ import uistore.SportsJamCustomerLoginLocators;
 import uistore.SportsJamHomePageLocators;
 import utils.Base;
 import utils.ExcelReader;
+import utils.Reporter;
+import utils.Screenshot;
 import utils.WebDriverHelper;
 
 public class SportsJamPumaWomenSportsPage {
 
     WebDriverHelper webDriverHelper;
+    ExtentTest test;
 
     public SportsJamPumaWomenSportsPage(WebDriver driver, ExtentTest test)
     {
         webDriverHelper = new WebDriverHelper(driver, test);
+        this.test = test;
     }
 
     /*
@@ -169,7 +173,7 @@ public class SportsJamPumaWomenSportsPage {
      */
     private void clickOnPuma() 
     {
-        webDriverHelper.clickOnElement(SportsJamBrandPageLocators.pumaLink, "Clicked on Puma result");
+        webDriverHelper.clickOnElement(SportsJamBrandPageLocators.pumaLink, "click on Puma");
     }
 
     /*
@@ -339,6 +343,8 @@ public class SportsJamPumaWomenSportsPage {
         System.out.println(text);
         webDriverHelper.checkAssert(text, ExcelReader.getCellData("AssertContainsData",3,0), "Verified Text form element");
 
+        webDriverHelper.takeScreenshot("PumaWomen Page","captured screenshot for puma women shoes page");
     }
+
 
 }
