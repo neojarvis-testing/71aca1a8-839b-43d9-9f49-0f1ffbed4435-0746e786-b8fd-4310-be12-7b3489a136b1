@@ -17,6 +17,11 @@ import utils.Reporter;
 public class TestExecutor extends Base{
     ExtentReports report;
     ExtentTest test;
+
+import utils.Base;
+
+public class TestExecutor extends Base{
+  
     /*
      * a. MethodName: openReport
      * b. AuthorName: Sharath
@@ -55,6 +60,9 @@ public class TestExecutor extends Base{
         AccountPage actp = new AccountPage(test);
         actp.testCase2();
     }
+
+    }
+
     /*
      * a. MethodName: closeInterface
      * b. AuthorName: Sharath
@@ -79,5 +87,8 @@ public class TestExecutor extends Base{
     public void closeReport()
     {
         report.flush();
+    }
+}
+        
     }
 }

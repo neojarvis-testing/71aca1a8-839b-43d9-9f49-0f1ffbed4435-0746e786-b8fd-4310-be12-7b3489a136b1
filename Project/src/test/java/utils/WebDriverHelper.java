@@ -1,6 +1,7 @@
 package utils;
  
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
  
@@ -15,6 +16,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
  
@@ -22,9 +24,11 @@ import com.aventstack.extentreports.Status;
 public class WebDriverHelper {
     WebDriver driver;
 	ExtentTest test;
+	 List<String> list=new ArrayList<String>();
 	public WebDriverHelper(WebDriver driver,ExtentTest test) {
 		this.driver = driver;
 		this.test = test;
+		list.add(driver.getWindowHandle());
 	}
 	public void clickOnElement(By locator, String message) {
 		try {
@@ -273,59 +277,22 @@ public class WebDriverHelper {
 			test.log(Status.FAIL, message);
 		}
 	}
-
-  public void verifyPageUrl(String expectedUrl,String message) {
-        try 
-		{
-			String PageUrl = driver.getCurrentUrl();
-			System.out.println(PageUrl);
-			System.out.println(expectedUrl);
-			Assert.assertEquals(PageUrl, expectedUrl);
-
-			LoggerHandler.info(message);
-			test.log(Status.PASS, message);
-		} 
-		catch (AssertionError e) 
-		{
-			LoggerHandler.error(message);
-			test.log(Status.FAIL, message);	
-		}
-    }
-	public List<WebElement> sendAllElements(By locator){
-        return driver.findElements(locator);
-    }
-	public void checkbox(By locator, String value, String message){
-		try {
-			List<WebElement> list = sendAllElements(locator);
-			for (WebElement element : list) {
-				if(element.getDomAttribute("value").equals(value)){
-					element.click();
-					LoggerHandler.info(message);
-					test.log(Status.PASS, message);
-					break;
-				}
-			}
-		} catch (Exception e) {
-			LoggerHandler.error(message);
-			test.log(Status.FAIL, message);
-		}
-    }
-    public void checkAssert(String text, String containsValue, String message) {
+	public void switchToNewWindow() {
         try {
-			System.out.println(text);
-			Assert.assertTrue(text.contains(containsValue));
-			LoggerHandler.info(message);
-			test.log(Status.PASS, message);
-		} catch (AssertionError e) {
-			LoggerHandler.error(message);
-			test.log(Status.FAIL, message);
-		}
-    }
-	public void enterData(By path){
-        try {
-            driver.findElement(path).sendKeys(Keys.ENTER);
+            Set<String> windowHandles = driver.getWindowHandles();
+            for (String windowHandle : windowHandles) {
+                if (!windowHandle.isEmpty()) {
+                    driver.switchTo().window(windowHandle);
+                    list.add(windowHandle);
+                } else {
+                    throw new Exception("New window could not be retrieved");
+                }
+            }
         } catch (Exception e) {
-            LoggerHandler.error("Enter data is not working");
+            e.printStackTrace();
         }
     }
+	public void switchBackTowindow(int x){
+		driver.switchTo().window(list.get(x));
+	}
 }
