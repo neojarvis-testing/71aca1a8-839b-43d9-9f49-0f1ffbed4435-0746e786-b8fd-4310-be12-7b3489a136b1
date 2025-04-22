@@ -162,6 +162,7 @@ public class WebDriverHelper {
 		try {
 			waitForElementToBeVisible(locator, 10);
 			WebElement element = driver.findElement(locator);
+			
 			Select select = new Select(element);
 			select.selectByVisibleText(value);
 			LoggerHandler.info(message);
