@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -88,6 +89,21 @@ public class Screenshot extends Base{
             File target = new File(screenshotsDir, name);
             Files.copy(file,target);
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    /*
+     * AuthorName: Srujana Makam
+     * MethodName:TakeScreenshot
+     * Description:A method to attach screenshot to report 
+     * Parameters:reportName,test,description
+     * Return Type:ExtentReport
+     */
+    public static void TakeScreenshot(String FileName) {
+        try {
+            File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(screenshotFile, new File(System.getProperty("user.dir") + "/screenshots/" + FileName+".png"));
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
