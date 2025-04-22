@@ -261,7 +261,13 @@ public class ProtectiveGearPage {
             e.printStackTrace();
         }
     }
-
+    /*
+     * a. Method Name: testcase4
+     * b. Author Name: Muralidhar
+     * c. Description: It contains all the methods
+     * d. Parameter: None
+     * e. Return Type: void
+     */
     public void testcase4(){
         try{
         hoverOnTeamSport();

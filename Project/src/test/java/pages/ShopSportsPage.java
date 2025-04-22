@@ -237,6 +237,13 @@ public class ShopSportsPage {
         }
         Screenshot.captureScreenShot("NO items");
     }
+    /*
+     * a. Method Name: testcase3
+     * b. Author Name: Muralidhar
+     * c. Description: It contains all the methods.
+     * d. Parameter: None
+     * e. Return Type: void
+     */
     public void testcase3(){
         hoverOnRacketSports();
         clickonShopSportswear();
