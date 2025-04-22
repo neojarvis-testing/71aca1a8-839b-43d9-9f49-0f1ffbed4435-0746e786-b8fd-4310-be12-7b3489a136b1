@@ -18,5 +18,6 @@ public class AccountPageLocators {
     public static By youRsignedOut = By.xpath("//h1/child::span[contains(text(),'You are sign')]");
     public static By loginEmail = By.cssSelector("input[id='email']");
     public static By loginPassword = By.cssSelector("input[id='pass']");
-    
+    public static By signIn = By.xpath("//span[text()='Sign In']");
+    public static By errorMessage = By.xpath("//div[text()='The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.']");
 }

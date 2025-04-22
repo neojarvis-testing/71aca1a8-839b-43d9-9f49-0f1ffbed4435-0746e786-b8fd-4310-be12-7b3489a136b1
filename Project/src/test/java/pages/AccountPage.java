@@ -35,7 +35,7 @@ public class AccountPage {
     }
     public void sendInEmail(){
         helper.clickOnElement(AccountPageLocators.email, "Clicked on email");
-        helper.sendData(AccountPageLocators.email, "murali@gmail.com", "Sent value to email");
+        helper.sendData(AccountPageLocators.email, "murafliderf@gmail.com", "Sent value to email");
     }
     public void sendInPassword(){
         helper.clickOnElement(AccountPageLocators.password, "Clicked on password");
@@ -45,15 +45,57 @@ public class AccountPage {
         helper.clickOnElement(AccountPageLocators.confirmPassword, "Clicked on ");
         helper.sendData(AccountPageLocators.confirmPassword, "Awhrbr@#$hvbfhvbi2434", "Sent value to confirmpassword");
     }
-    public void clickOnCreateAccount(){
+    public void clickOnCreate(){
         helper.clickOnElement(AccountPageLocators.create, "Clicked on create");
     }
-    public void verifyGymGloves(){
+    public void verifyThankYou(){
         try {
-            String data = helper.getText(GymGlovesPageLocators.titleGymGloves, "Verified Gym Gloves");
-            Assert.assertEquals(data, "Gym Gloves");
+            String data = helper.getText(AccountPageLocators.thankYou, "Verified Thank you message");
+            Assert.assertTrue(data.contains("THANK YOU"));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
+    public void clickONLogout(){
+        helper.clickOnElement(AccountPageLocators.logout,"Clicked on logout");
+    }
+    public void backNavigate(){
+        helper.navigateBack("Navigated Back");
+    }
+    public void sendInLoginEmail(){
+        helper.sendData(AccountPageLocators.loginEmail, "test134@gmail.com", "Sent email in Login page");
+    }
+    public void sendInLoginPassword(){
+        helper.sendData(AccountPageLocators.loginPassword, "test140@ga", "Sent password in Login page");
+    }
+    public void clickOnSignIn(){
+        helper.clickOnElement(AccountPageLocators.signIn, "Clicked on signIn");
+    }
+    public void verifyErrorMessage(){
+        try {
+            String data = helper.getText(AccountPageLocators.errorMessage, "Verified Error Message");
+            Assert.assertTrue(data.contains( "THE ACCOUNT SIGN-IN WAS INCORRECT OR YOUR ACCOUNT IS DISABLED"));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void testCase2(){
+        hoverOnLogin();
+        clickOnLogin();
+        clickOncreateAccount();
+        sendInFirstName();
+        sendInLastName();
+        sendInEmail();
+        sendInPassword();
+        sendInConfirmPassword();
+        clickOnCreate();
+        clickONLogout();
+        backNavigate();
+        sendInLoginEmail();
+        sendInLoginPassword();
+        clickOnSignIn();
+        verifyErrorMessage();
+    }
+
 }
