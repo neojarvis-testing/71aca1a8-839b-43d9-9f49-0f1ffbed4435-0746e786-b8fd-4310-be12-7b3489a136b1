@@ -15,5 +15,8 @@ public class AccountPageLocators {
     public static By create = By.cssSelector("button[id='send2']");
     public static By thankYou = By.xpath("//div[text()='Thank you for registering with SportsJam.']");
     public static By logout = By.xpath("//a[text()='Logout']");
+    public static By youRsignedOut = By.xpath("//h1/child::span[contains(text(),'You are sign')]");
+    public static By loginEmail = By.cssSelector("input[id='email']");
+    public static By loginPassword = By.cssSelector("input[id='pass']");
     
 }
