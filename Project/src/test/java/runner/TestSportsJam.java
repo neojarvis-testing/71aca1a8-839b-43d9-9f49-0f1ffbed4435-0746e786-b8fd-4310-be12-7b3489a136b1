@@ -108,7 +108,7 @@ public class TestSportsJam extends Base{
     }
 
     /*
-     * a. MethodName: shopsportscompare
+     * a. MethodName: shopSportsCompare
      * b. AuthorName: Muralidhar
      * c. Description: This is used to run the tests of the pages.
      * d. Parameters: None
@@ -116,21 +116,21 @@ public class TestSportsJam extends Base{
      */
 
     @Test(enabled = true)
-    public void shopsportscompare(){
+    public void shopSportsCompare(){
         test=report.createTest("Shopsportscomparison");
         ShopSportsPage ssp=new ShopSportsPage(test);
         ssp.testcase3();
     }
     /*
-     * a. MethodName: ProtectiveGear
+     * a. MethodName: protectiveGear
      * b. AuthorName: Muralidhar
      * c. Description: This is used to run the tests of the pages.
      * d. Parameters: None
      * e. Return Type: void
      */
     @Test(enabled = true)
-    public void ProtectiveGear(){
-        test = report.createTest("ProtectiveG");
+    public void protectiveGear(){
+        test = report.createTest("ProtectiveGear");
         ProtectiveGearPage pgp = new ProtectiveGearPage(test);
         pgp.testcase4();
     }
