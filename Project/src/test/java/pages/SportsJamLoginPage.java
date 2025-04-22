@@ -10,7 +10,7 @@ import utils.WebDriverHelper;
 
 public class SportsJamLoginPage {
     public static WebDriverHelper helper;
-    public static ExtentTest test;
+    public  ExtentTest test;
     public SportsJamLoginPage(ExtentTest test)
     {
         helper=new WebDriverHelper(Base.driver, test);

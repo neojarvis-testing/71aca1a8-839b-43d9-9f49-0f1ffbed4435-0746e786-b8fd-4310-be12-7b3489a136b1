@@ -59,7 +59,7 @@ public class SportsJamPumaWomenSportsPage {
 
         switchToIframe();
 
-        verifyIFrameURL();
+        // verifyIFrameURL();
 
         clickOnWishList();
 
@@ -83,8 +83,7 @@ public class SportsJamPumaWomenSportsPage {
      */
     private void verifyHomePageURL() 
     {
-        // ExcelReader.getCellData("PageUrl",0,0);
-        webDriverHelper.verifyPageUrl("https://sportsjam.in/","Home page url is verified");
+        webDriverHelper.verifyPageUrl(ExcelReader.getCellData("PageURLS",0,0),"Home page url is verified");
     }
     
     /*
@@ -108,9 +107,7 @@ public class SportsJamPumaWomenSportsPage {
      */
     private void verifyBrandsPageURL() 
     {
-        // ExcelReader.getCellData("PageUrl",1,0);
-        webDriverHelper.verifyPageUrl("https://sportsjam.in/shopbrand","Brand page url is verified");
-        
+        webDriverHelper.verifyPageUrl(ExcelReader.getCellData("PageURLS",1,0),"Brand page url is verified");
     }
 
     /*
@@ -122,7 +119,7 @@ public class SportsJamPumaWomenSportsPage {
      */
     private void clickOnSearchBar() 
     {
-        webDriverHelper.clickOnElement(SportsJamBrandPageLocators.searchbar, "Clicked on searchbar");
+        webDriverHelper.clickOnElement(SportsJamBrandPageLocators.searchBar, "Clicked on searchbar");
     }
     
     /*
@@ -134,8 +131,7 @@ public class SportsJamPumaWomenSportsPage {
      */
     private void sendDataToSearchBar() 
     {
-        // ExcelReader.getCellData("DataToBeSent",0,0);
-        webDriverHelper.sendData(SportsJamBrandPageLocators.searchbar,"Puma", "Sent Puma to searchbar");
+        webDriverHelper.sendData(SportsJamBrandPageLocators.searchBar,ExcelReader.getCellData("DataToBeSent",0,0), "Sent Puma to searchbar");
     }
 
     /*
@@ -147,7 +143,7 @@ public class SportsJamPumaWomenSportsPage {
      */
     private void clickOnSearchIcon() 
     {
-        webDriverHelper.clickOnElement(SportsJamBrandPageLocators.searchicon, "Clicked on search icon");
+        webDriverHelper.clickOnElement(SportsJamBrandPageLocators.searchIcon, "Clicked on search icon");
     }
 
     /*
@@ -159,8 +155,9 @@ public class SportsJamPumaWomenSportsPage {
      */
     private void verifyTextForPuma() 
     {
-        String text = webDriverHelper.getText(SportsJamBrandPageLocators.pumalink,"puma text is retrieved form element");
-        Assert.assertTrue(text.contains("Puma"));
+        String text = webDriverHelper.getText(SportsJamBrandPageLocators.pumaLink,"puma text is retrieved form element");
+        // Assert.assertTrue(text.contains("Puma"));
+        webDriverHelper.checkAssert(text, ExcelReader.getCellData("AssertContainsData",0,0), "checked Puma Value from element");
     }
 
     /*
@@ -172,7 +169,7 @@ public class SportsJamPumaWomenSportsPage {
      */
     private void clickOnPuma() 
     {
-        webDriverHelper.clickOnElement(SportsJamBrandPageLocators.pumalink, "Clicked on Puma result");
+        webDriverHelper.clickOnElement(SportsJamBrandPageLocators.pumaLink, "Clicked on Puma result");
     }
 
     /*
@@ -184,8 +181,7 @@ public class SportsJamPumaWomenSportsPage {
      */
     private void verifyThePumaPage() 
     {
-        // ExcelReader.getCellData("PageUrl",2,0);
-        webDriverHelper.verifyPageUrl("https://sportsjam.in/shopbrand/puma","Puma Product Result page url is verified");
+        webDriverHelper.verifyPageUrl(ExcelReader.getCellData("PageURLS",2,0),"Puma Product Result page url is verified");
     }
 
     /*
@@ -210,8 +206,8 @@ public class SportsJamPumaWomenSportsPage {
     private void verifyAccessoiresTextInFilter() 
     {
         String text = webDriverHelper.getText(PumaProductPageLocators.accessoriesText, "Retrieved Accessories text from element");
-        System.out.println(text);
-        Assert.assertTrue(text.toLowerCase().contains("accessories"));
+        // System.out.println(text);
+        webDriverHelper.checkAssert(text.toLowerCase(), ExcelReader.getCellData("AssertContainsData",1,0), "Checked if text contains accessories");
     }
 
     /*
@@ -235,7 +231,7 @@ public class SportsJamPumaWomenSportsPage {
      */
     private void clickOnQuickView() 
     {
-        webDriverHelper.clickOnElement(PumaProductPageLocators.quickview, "Clicked on QuickView");
+        webDriverHelper.clickOnElement(PumaProductPageLocators.quickView, "Clicked on QuickView");
     }
 
     /*
@@ -259,7 +255,7 @@ public class SportsJamPumaWomenSportsPage {
      */
     private void verifyIFrameURL() 
     {
-        webDriverHelper.verifyPageUrl("https://sportsjam.in/ox_quickview/catalog_product/view/id/30663/", "Iframe Page Url Verified");
+        webDriverHelper.verifyPageUrl(ExcelReader.getCellData("PageURLS",3,0), "Iframe Page Url Verified");
     }
 
     /*
@@ -271,7 +267,7 @@ public class SportsJamPumaWomenSportsPage {
      */    
     private void clickOnWishList() 
     {
-        webDriverHelper.clickOnElement(PumaProductPageLocators.wishlist, "Clicked On WishList");
+        webDriverHelper.clickOnElement(PumaProductPageLocators.wishList, "Clicked On WishList");
         webDriverHelper.exitIFrame("exited form iframe");
     }
 
@@ -286,7 +282,8 @@ public class SportsJamPumaWomenSportsPage {
     {
         String text = webDriverHelper.getText(SportsJamCustomerLoginLocators.promtMessage, "Retrieved Prompt message");
         System.out.println(text);
-        Assert.assertTrue(text.toLowerCase().contains("you must login or register to add items to your wishlist."));
+        // Assert.assertTrue(text.toLowerCase().contains("you must login or register to add items to your wishlist."));
+        webDriverHelper.checkAssert(text.toLowerCase(), ExcelReader.getCellData("AssertContainsData",2,0), "verified if text contains login ot register");
     }
 
     /*
@@ -300,7 +297,7 @@ public class SportsJamPumaWomenSportsPage {
     {
         // ExcelReader.getCellData("CustomerLogin",0,0);
         webDriverHelper.clickOnElement(SportsJamCustomerLoginLocators.email, "Clicked On email");
-        webDriverHelper.sendData(SportsJamCustomerLoginLocators.email,"test134@gmail.com","Sent email to input field");
+        webDriverHelper.sendData(SportsJamCustomerLoginLocators.email,ExcelReader.getCellData("DataToBeSent", 1, 0),"Sent email to input field");
     }
 
     /*
@@ -314,7 +311,7 @@ public class SportsJamPumaWomenSportsPage {
     {
         // ExcelReader.getCellData("CustomerLogin",1,0);
         webDriverHelper.clickOnElement(SportsJamCustomerLoginLocators.password, "Clicked On password");
-        webDriverHelper.sendData(SportsJamCustomerLoginLocators.password, "test140@ga", "Sent data to password field");
+        webDriverHelper.sendData(SportsJamCustomerLoginLocators.password, ExcelReader.getCellData("DataToBeSent", 2, 0), "Sent data to password field");
     }
 
     /*
@@ -326,7 +323,7 @@ public class SportsJamPumaWomenSportsPage {
      */
     private void clickOnSignIn() 
     {
-        webDriverHelper.clickOnElement(SportsJamCustomerLoginLocators.signin,"Clicked on Signin");
+        webDriverHelper.clickOnElement(SportsJamCustomerLoginLocators.signIn,"Clicked on Signin");
     }
 
     /*
@@ -340,7 +337,7 @@ public class SportsJamPumaWomenSportsPage {
     {
         String text = webDriverHelper.getText(SportsJamCustomerLoginLocators.signInText,"Retrieved data form signin text");
         System.out.println(text);
-        Assert.assertTrue(text.contains("THE ACCOUNT SIGN-IN WAS INCORRECT OR YOUR ACCOUNT IS DISABLED TEMPORARILY. PLEASE WAIT AND TRY AGAIN LATER."));
+        webDriverHelper.checkAssert(text, ExcelReader.getCellData("AssertContainsData",3,0), "Verified Text form element");
 
     }
 

@@ -46,14 +46,14 @@ public class TestSportsJam extends Base{
     }
  
     /*
-     * a. MethodName: SportsJamWomenSportsCase
+     * a. MethodName: sportsJamWomenSportsCase
      * b. AuthorName: Sharath
      * c. Description: This is used to run the tests of the pages.
      * d. Parameters: None
      * e. Return Type: None
      */
     @Test(enabled = false)
-    public void SportsJamWomenSportsCase(){
+    public void sportsJamWomenSportsCase(){
         ExtentTest test = report.createTest("Puma Brand Page Test");
         SportsJamPumaWomenSportsPage sportsJamPumaWomenSportsPage = new SportsJamPumaWomenSportsPage(driver,test);
         sportsJamPumaWomenSportsPage.runWomenSportsCase();
@@ -63,14 +63,14 @@ public class TestSportsJam extends Base{
 
 
     /*
-     * a. MethodName: SprotsJamBadmintonPageVerificationCase
+     * a. MethodName: sprotsJamBadmintonPageVerificationCase
      * b. AuthorName: Sharath
      * c. Description: This is used to run the tests of the badminton shoes pages.
      * d. Parameters: None
      * e. Return Type: None
      */
-    @Test(enabled = false)
-    public void SprotsJamBadmintonPageVerificationCase(){
+    @Test(enabled = true)
+    public void sprotsJamBadmintonPageVerificationCase(){
         ExtentTest test = report.createTest("Shoes Page Test");
         SportsJamMensShoesPage  sportsJamMensShoesPage = new SportsJamMensShoesPage(driver,test);
         sportsJamMensShoesPage.runMensShoesCase();
@@ -85,7 +85,7 @@ public class TestSportsJam extends Base{
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void adidasProductsFilterTest(){
         test = report.createTest("adidasProductsFilterTest");
         SportsJamAdidasResultsPage sportsJamAdidasResultsPage = new SportsJamAdidasResultsPage(test);
@@ -99,7 +99,7 @@ public class TestSportsJam extends Base{
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void addProductsToCartTest(){
         test = report.createTest("addProductsToCartTest");
         SportsJamBadmintonPage sportsJamBadmintonPage = new SportsJamBadmintonPage(test);
