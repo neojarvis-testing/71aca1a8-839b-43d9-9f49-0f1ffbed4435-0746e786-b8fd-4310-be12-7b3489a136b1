@@ -13,7 +13,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -236,24 +235,5 @@ public class WebDriverHelper {
 			LoggerHandler.error(message);
 			test.log(Status.FAIL, message);
 		}
-	}
-    public void switchToNewWindow() {
-        try {
-            Set<String> windowHandles = driver.getWindowHandles();
-            for (String windowHandle : windowHandles) {
-                if (!windowHandle.isEmpty()) {
-                    driver.switchTo().window(windowHandle);
-                    list.add(windowHandle);
-                } else {
-                    throw new Exception("New window could not be retrieved");
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-	public void switchbacktowindow(int x)
-	{
-		driver.switchTo().window(list.get(x));
 	}
 }
