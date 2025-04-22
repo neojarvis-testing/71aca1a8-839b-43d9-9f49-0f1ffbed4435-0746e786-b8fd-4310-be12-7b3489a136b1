@@ -1,14 +1,19 @@
 package utils;
  
+import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
  
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -17,9 +22,11 @@ import com.aventstack.extentreports.Status;
 public class WebDriverHelper {
     WebDriver driver;
 	ExtentTest test;
+	 List<String> list=new ArrayList<String>();
 	public WebDriverHelper(WebDriver driver,ExtentTest test) {
 		this.driver = driver;
 		this.test = test;
+		list.add(driver.getWindowHandle());
 	}
 	public void clickOnElement(By locator, String message) {
 		try {
@@ -229,5 +236,24 @@ public class WebDriverHelper {
 			LoggerHandler.error(message);
 			test.log(Status.FAIL, message);
 		}
+	}
+    public void switchToNewWindow() {
+        try {
+            Set<String> windowHandles = driver.getWindowHandles();
+            for (String windowHandle : windowHandles) {
+                if (!windowHandle.isEmpty()) {
+                    driver.switchTo().window(windowHandle);
+                    list.add(windowHandle);
+                } else {
+                    throw new Exception("New window could not be retrieved");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+	public void switchbacktowindow(int x)
+	{
+		driver.switchTo().window(list.get(x));
 	}
 }
