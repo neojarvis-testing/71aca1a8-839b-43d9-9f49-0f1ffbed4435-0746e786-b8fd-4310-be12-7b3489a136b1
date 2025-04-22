@@ -11,12 +11,21 @@ import com.aventstack.extentreports.ExtentTest;
 
 import pages.ProtectiveGearPage;
 import pages.ShopSportsPage;
+import pages.AccountPage;
+import pages.GymGlovesPage;
 import utils.Base;
 import utils.Reporter;
 
 public class TestExecutor extends Base{
     ExtentTest test;
     ExtentReports report;
+    ExtentReports report;
+    ExtentTest test;
+
+import utils.Base;
+
+public class TestExecutor extends Base{
+  
     /*
      * a. MethodName: openReport
      * b. AuthorName: Sharath
@@ -28,6 +37,7 @@ public class TestExecutor extends Base{
     public void openReport()
     {
         report=Reporter.generateReport("murali");
+        report = Reporter.generateReport("Gagan");
     }
 
     /*
@@ -55,6 +65,22 @@ public class TestExecutor extends Base{
         ProtectiveGearPage pgp = new ProtectiveGearPage(test);
         pgp.testcase4();
     }
+
+    @Test
+    public void testMain1(){
+        test = report.createTest("TestCase 5");
+        GymGlovesPage ggp = new GymGlovesPage(test);
+        ggp.testCase1();
+    }
+    @Test
+    public void testMain2(){
+        test = report.createTest("TestCase 6");
+        AccountPage actp = new AccountPage(test);
+        actp.testCase2();
+    }
+
+    }
+
     /*
      * a. MethodName: closeInterface
      * b. AuthorName: Sharath
@@ -79,5 +105,8 @@ public class TestExecutor extends Base{
     public void closeReport()
     {
         report.flush();
+    }
+}
+        
     }
 }
