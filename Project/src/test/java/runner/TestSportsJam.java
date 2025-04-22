@@ -58,7 +58,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: None
      */
-    @Test(enabled = true)
+    @Test(enabled = true,priority = 5)
     public void sportsJamWomenSportsCase(){
         ExtentTest test = report.createTest("Puma Brand Page Test");
         SportsJamPumaWomenSportsPage sportsJamPumaWomenSportsPage = new SportsJamPumaWomenSportsPage(driver,test);
@@ -75,7 +75,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: None
      */
-    @Test(enabled = true)
+    @Test(enabled = true,priority = 6)
     public void sprotsJamBadmintonPageVerificationCase(){
         ExtentTest test = report.createTest("Shoes Page Test");
         SportsJamMensShoesPage  sportsJamMensShoesPage = new SportsJamMensShoesPage(driver,test);
@@ -85,14 +85,14 @@ public class TestSportsJam extends Base
     }
 
     /*
-     * a. MethodName: SportsJamGymGlovesCase
+     * a. MethodName: sportsJamGymGlovesCase
      * b. AuthorName: Gagandeep Kanta 
      * c. Description: This is used to run the tests of the pages.
      * d. Parameters: None
      * e. Return Type: None
      */
     @Test(enabled = true, priority = 3)
-    public void SportsJamGymGlovesCase(){
+    public void sportsJamGymGlovesCase(){
         ExtentTest test = report.createTest("Gym Gloves Page Test");
         SportsJamGymGlovesPage sportsJamGymGlovesPage = new SportsJamGymGlovesPage(test);
         sportsJamGymGlovesPage.runGymGlovesPage();
@@ -101,14 +101,14 @@ public class TestSportsJam extends Base
     }
 
     /*
-     * a. MethodName: SportsJamCreateAccountCase
+     * a. MethodName: sportsJamCreateAccountCase
      * b. AuthorName: Gagandeep Kanta
      * c. Description: This is used to run the tests of the pages.
      * d. Parameters: None
      * e. Return Type: None
      */
     @Test(enabled = true, priority = 4)
-    public void SportsJamCreateAccountCase(){
+    public void sportsJamCreateAccountCase(){
         ExtentTest test = report.createTest("Create Account Page Test");
         SportsJamCreateAccountPage sportsJamCreateAccountPage = new SportsJamCreateAccountPage(test);
         sportsJamCreateAccountPage.runCreateAccountPage();
@@ -121,7 +121,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test(enabled = true)
+    @Test(enabled = true,priority = 1)
     public void adidasProductsFilterTest(){
         test = report.createTest("adidasProductsFilterTest");
         SportsJamAdidasResultsPage sportsJamAdidasResultsPage = new SportsJamAdidasResultsPage(test);
@@ -135,7 +135,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test(enabled = true)
+    @Test(enabled = true,priority = 2)
     public void addProductsToCartTest(){
         test = report.createTest("addProductsToCartTest");
         SportsJamBadmintonPage sportsJamBadmintonPage = new SportsJamBadmintonPage(test);
@@ -149,7 +149,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test(enabled = true)
+    @Test(enabled = true,priority = 7)
     public void testcase3(){
         test=report.createTest("testcase3");
         ShopSportsPage ssp=new ShopSportsPage(test);
@@ -162,7 +162,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test(enabled = true)
+    @Test(enabled = true,priority = 8)
     public void protectiveGear(){
         test = report.createTest("ProtectiveGear");
         ProtectiveGearPage pgp = new ProtectiveGearPage(test);
@@ -176,7 +176,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test(enabled = true)
+    @Test(enabled = true,priority = 9)
     public void navigatetest()
     {
         test=report.createTest("NavigateTest");
@@ -191,7 +191,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test(enabled = true)
+    @Test(enabled = true,priority = 10)
     public void switchtest()
     {
         test=report.createTest("SwitchTest");

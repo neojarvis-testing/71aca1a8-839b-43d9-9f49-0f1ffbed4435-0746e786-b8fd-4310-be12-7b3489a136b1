@@ -19,6 +19,8 @@ import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+
+import uistore.SportsJamCustomerLoginLocators;
  
  
 public class WebDriverHelper {
@@ -327,4 +329,10 @@ public class WebDriverHelper {
 	public void enterData(By path) {
         driver.findElement(path).sendKeys(Keys.ENTER);
     }
+
+	public void takeScreenshot(String filaname,String description)
+	{
+		Screenshot.TakeScreenshot(filaname);
+        Reporter.attachScreenshotToReport(filaname, test, description);
+	}
 }
