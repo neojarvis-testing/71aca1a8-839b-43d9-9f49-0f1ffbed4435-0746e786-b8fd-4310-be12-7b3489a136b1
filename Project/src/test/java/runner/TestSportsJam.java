@@ -11,7 +11,9 @@ import pages.ProtectiveGearPage;
 import pages.ShopSportsPage;
 import pages.SportsJamAdidasResultsPage;
 import pages.SportsJamBadmintonPage;
+import pages.SportsJamCreateAccountPage;
 import pages.SportsJamFooterPage;
+import pages.SportsJamGymGlovesPage;
 import pages.SportsJamLoginPage;
 import pages.SportsJamMensShoesPage;
 import pages.SportsJamPumaWomenSportsPage;
@@ -56,7 +58,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: None
      */
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void sportsJamWomenSportsCase(){
         ExtentTest test = report.createTest("Puma Brand Page Test");
         SportsJamPumaWomenSportsPage sportsJamPumaWomenSportsPage = new SportsJamPumaWomenSportsPage(driver,test);
@@ -119,7 +121,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void adidasProductsFilterTest(){
         test = report.createTest("adidasProductsFilterTest");
         SportsJamAdidasResultsPage sportsJamAdidasResultsPage = new SportsJamAdidasResultsPage(test);
@@ -133,7 +135,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void addProductsToCartTest(){
         test = report.createTest("addProductsToCartTest");
         SportsJamBadmintonPage sportsJamBadmintonPage = new SportsJamBadmintonPage(test);
@@ -147,7 +149,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void testcase3(){
         test=report.createTest("testcase3");
         ShopSportsPage ssp=new ShopSportsPage(test);
