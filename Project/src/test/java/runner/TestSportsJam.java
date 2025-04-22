@@ -7,6 +7,8 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
+import pages.SportsJamCreateAccountPage;
+import pages.SportsJamGymGlovesPage;
 import pages.ShopSportsPage;
 import pages.SportsJamAdidasResultsPage;
 import pages.SportsJamBadmintonPage;
@@ -79,6 +81,34 @@ public class TestSportsJam extends Base{
     }
 
     /*
+     * a. MethodName: SportsJamGymGlovesCase
+     * b. AuthorName: Gagandeep Kanta 
+     * c. Description: This is used to run the tests of the pages.
+     * d. Parameters: None
+     * e. Return Type: None
+     */
+    @Test(enabled = true)
+    public void SportsJamGymGlovesCase(){
+        ExtentTest test = report.createTest("Gym Gloves Page Test");
+        SportsJamGymGlovesPage sportsJamGymGlovesPage = new SportsJamGymGlovesPage(test);
+        sportsJamGymGlovesPage.runGymGlovesPage();
+    }
+
+    /*
+     * a. MethodName: SportsJamCreateAccountCase
+     * b. AuthorName: Gagandeep Kanta
+     * c. Description: This is used to run the tests of the pages.
+     * d. Parameters: None
+     * e. Return Type: None
+     */
+    @Test(enabled = true)
+    public void SportsJamCreateAccountCase(){
+        ExtentTest test = report.createTest("Create Account Page Test");
+        SportsJamCreateAccountPage sportsJamCreateAccountPage = new SportsJamCreateAccountPage(test);
+        sportsJamCreateAccountPage.runCreateAccountPage();
+    }
+
+    /*
      * a. MethodName: adidasProductsFilterTest
      * b. AuthorName: Tanishk Maheshwari
      * c. Description: This is used to run the tests of the pages.
@@ -138,4 +168,3 @@ public class TestSportsJam extends Base{
     }
 }
 
-}

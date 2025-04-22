@@ -23,6 +23,7 @@ public class LoggerHandler {
             FileAppender fileAppender = new FileAppender(new PatternLayout("%d{ISO8601} %-5p %c - %m%n "),logFileName,true);
             logger.addAppender(fileAppender);
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     /*

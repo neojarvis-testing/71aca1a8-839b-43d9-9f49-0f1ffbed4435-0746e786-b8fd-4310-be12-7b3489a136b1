@@ -4,94 +4,93 @@ import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
 
-import uistore.GymGlovesPageLocators;
+import uistore.SportsJamGymGlovesPageLocators;
 import utils.Base;
 import utils.Screenshot;
 import utils.WebDriverHelper;
 
-public class GymGlovesPage {
+public class SportsJamGymGlovesPage {
     ExtentTest test;
     WebDriverHelper helper;
-    public GymGlovesPage(ExtentTest test){
+    public SportsJamGymGlovesPage(ExtentTest test){
         helper = new WebDriverHelper(Base.driver, test);
     }
     
     public void HoverOnFitness(){
-        helper.hoverOverElement(GymGlovesPageLocators.fitness,"Hovered on fitness");
+        helper.hoverOverElement(SportsJamGymGlovesPageLocators.fitness,"Hovered on fitness");
     }
     public void clickOnGymGloves(){
-        helper.clickOnElement(GymGlovesPageLocators.gymGloves, "Clicked on Gym Gloves");
+        helper.clickOnElement(SportsJamGymGlovesPageLocators.gymGloves, "Clicked on Gym Gloves");
     }
     public void verifyGymGloves(){
         try {
-            String data = helper.getText(GymGlovesPageLocators.titleGymGloves, "Verified Gym Gloves");
+            String data = helper.getText(SportsJamGymGlovesPageLocators.titleGymGloves, "Verified Gym Gloves");
             Assert.assertEquals(data, "Gym Gloves");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
     public void clickOnEverlast(){
-        helper.clickOnElement(GymGlovesPageLocators.everlast, "Clicked on Everlast");
+        helper.clickOnElement(SportsJamGymGlovesPageLocators.everlast, "Clicked on Everlast");
     }
     public void verifyEverlast(){
         try {
-            String data = helper.getText(GymGlovesPageLocators.titleEverlast, "Verified Everlast");
+            String data = helper.getText(SportsJamGymGlovesPageLocators.titleEverlast, "Verified Everlast");
             Assert.assertEquals(data, "Everlast");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
     public void clickOnProduct(){
-        helper.clickOnElement(GymGlovesPageLocators.product, "Clicked on product");
+        helper.clickOnElement(SportsJamGymGlovesPageLocators.product, "Clicked on product");
     }
     public void clickOnAddToCart(){
-        helper.clickOnElement(GymGlovesPageLocators.ADDTOCART, "Clicked on add to cart");
+        helper.clickOnElement(SportsJamGymGlovesPageLocators.ADDTOCART, "Clicked on add to cart");
     }
     public void verifyProductAddedToCart(){
         try {
-            String data = helper.getText(GymGlovesPageLocators.titleProductAddedToCart, "Verified Product added to cart");
+            String data = helper.getText(SportsJamGymGlovesPageLocators.titleProductAddedToCart, "Verified Product added to cart");
             Assert.assertTrue(data.contains("YOU ADDED EVERLAST MENS UNIVERSAL FIT GLOVES (SIZE M&L, BLUE) TO"));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
     public void hoverOnCart(){
-        helper.hoverOverElement(GymGlovesPageLocators.cart, "Hovered on cart on top right");
+        helper.hoverOverElement(SportsJamGymGlovesPageLocators.cart, "Hovered on cart on top right");
     }
     public void verifyName(){
         try {
-            String data = helper.getText(GymGlovesPageLocators.inCartItem, "Verified Product added to cart");
+            String data = helper.getText(SportsJamGymGlovesPageLocators.inCartItem, "Verified Product added to cart");
             Assert.assertEquals(data, "EVERLAST MENS UNIVERSAL FIT GLOVES (SIZE M&L, BLUE)");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
     public void clickOnViewCart(){
-        helper.clickOnElement(GymGlovesPageLocators.viewCart, "Clicked on view Cart");
+        helper.clickOnElement(SportsJamGymGlovesPageLocators.viewCart, "Clicked on view Cart");
     }
 
     public void verifyShoppingCart(){
         try {
-            String data = helper.getText(GymGlovesPageLocators.nameInCart, "Verified name in cart");
+            String data = helper.getText(SportsJamGymGlovesPageLocators.nameInCart, "Verified name in cart");
             Assert.assertEquals(data, "EVERLAST MENS UNIVERSAL FIT GLOVES (SIZE M&L, BLUE)");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
     public void clickOnProceedToCheckout(){
-        helper.clickOnElement(GymGlovesPageLocators.proceedToCheckout, "Clicked on proceed to checkout");
+        helper.clickOnElement(SportsJamGymGlovesPageLocators.proceedToCheckout, "Clicked on proceed to checkout");
     }
     public void verifyOrderSummary(){
         try {
-            String data = helper.getText(GymGlovesPageLocators.orderSummary, "Verified Order Summary");
+            String data = helper.getText(SportsJamGymGlovesPageLocators.orderSummary, "Verified Order Summary");
             Assert.assertEquals(data, "ORDER SUMMARY");
             Screenshot.captureScreenShot("Order summary");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
-    public void testCase1(){
-
+    public void runGymGlovesPage(){
         HoverOnFitness();
         clickOnGymGloves();
         verifyGymGloves();
@@ -106,8 +105,6 @@ public class GymGlovesPage {
         verifyShoppingCart();
         clickOnProceedToCheckout();
         verifyOrderSummary();
-
-
     }
     
 }

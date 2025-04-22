@@ -2,7 +2,7 @@ package uistore;
 
 import org.openqa.selenium.By;
 
-public class AccountPageLocators {
+public class SportsJamCreateAccountPageLocators {
     public static By loginIcon = By.xpath("//i[@class='athlete2-icon-login']");
     public static By loginButton = By.xpath("//a[text()='Log In']");
     public static By verifySignIn = By.xpath("//strong[@id='block-customer-login-heading']");
