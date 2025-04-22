@@ -6,6 +6,7 @@ import com.aventstack.extentreports.ExtentTest;
 
 import uistore.SportsJamBadmintonShoesPage;
 import uistore.SportsJamHomePageLocators;
+import utils.ExcelReader;
 import utils.WebDriverHelper;
 
 public class SportsJamMensShoesPage {
@@ -75,7 +76,7 @@ public class SportsJamMensShoesPage {
      * e. ReturnType: None
      */
     private void verifyCricketShoesPage() {
-        webDriverHelper.verifyPageUrl("https://sportsjam.in/sports/cricket-equipment-store-online-india/cricket-shoes-shop-online-india","Cricket Shoes Page Url is verified");
+        webDriverHelper.verifyPageUrl(ExcelReader.getCellData("PageURLS", 0, 2),"Cricket Shoes Page Url is verified");
     }
 
     /*
@@ -87,7 +88,7 @@ public class SportsJamMensShoesPage {
      */
     private void verifyHomePageURL() {
     // ExcelReader.getCellData("PageUrl",0,0);
-    webDriverHelper.verifyPageUrl("https://sportsjam.in/","Home page url is verified");
+    webDriverHelper.verifyPageUrl(ExcelReader.getCellData("PageURLS", 1, 2),"Home page url is verified");
     }
 
     /*
@@ -109,7 +110,7 @@ public class SportsJamMensShoesPage {
      * e. ReturnType: None
      */
     private void clickOnBadmintion() {
-        webDriverHelper.clickOnElement(SportsJamHomePageLocators.badmintion, "Clicked On Badmintion");
+        webDriverHelper.clickOnElement(SportsJamHomePageLocators.shoesMenBadmintion, "Clicked On Badmintion");
     }
 
     /*
@@ -120,7 +121,7 @@ public class SportsJamMensShoesPage {
      * e. ReturnType: None
      */
     private void verifyBadmintonShoesPage() {
-        webDriverHelper.verifyPageUrl("https://sportsjam.in/badminton-shoes-online-india","Badminton Shoes Page Url is verified");
+        webDriverHelper.verifyPageUrl(ExcelReader.getCellData("PageURLS", 2, 2),"Badminton Shoes Page Url is verified");
     }
 
     /*
@@ -131,7 +132,7 @@ public class SportsJamMensShoesPage {
      * e. ReturnType: None
      */
     private void clickOnBasketball() {
-        webDriverHelper.clickOnElement(SportsJamBadmintonShoesPage.basketball, "clicked on Basket Ball");
+        webDriverHelper.clickOnElement(SportsJamBadmintonShoesPage.basketballShoes, "clicked on Basket Ball");
     }
 
     /*
@@ -142,7 +143,7 @@ public class SportsJamMensShoesPage {
      * e. ReturnType: None
      */
     private void verifyBasketBallShoesPage() {
-        webDriverHelper.verifyPageUrl("https://sportsjam.in/sports/basketball-gear-online-india/basketball-shoes-online-india","Basket Shoes Page Url is verified");
+        webDriverHelper.verifyPageUrl(ExcelReader.getCellData("PageURLS", 3, 2),"Basket Shoes Page Url is verified");
     }
 
     /*
@@ -153,7 +154,7 @@ public class SportsJamMensShoesPage {
      * e. ReturnType: None
      */
     private void clickOnCricket() {
-        webDriverHelper.clickOnElement(SportsJamBadmintonShoesPage.cricket,"Clicked on Cricket");
+        webDriverHelper.clickOnElement(SportsJamBadmintonShoesPage.cricketShoes,"Clicked on Cricket");
     }
 
     /*
@@ -164,7 +165,7 @@ public class SportsJamMensShoesPage {
      * e. ReturnType: None
      */
     private void clickOnFootBall() {
-        webDriverHelper.clickOnElement(SportsJamBadmintonShoesPage.football, "click on football");
+        webDriverHelper.clickOnElement(SportsJamBadmintonShoesPage.footballShoes, "click on football");
     }
 
     /*
@@ -175,7 +176,7 @@ public class SportsJamMensShoesPage {
      * e. ReturnType: None
      */
     private void verifyFootBallShoesPage(){
-        webDriverHelper.verifyPageUrl("https://sportsjam.in/sports/buy-sports-football/football-shoes-online-india","Basket Shoes Page Url is verified");
+        webDriverHelper.verifyPageUrl(ExcelReader.getCellData("PageURLS", 4, 2),"Basket Shoes Page Url is verified");
     }
 
     /*
@@ -186,7 +187,7 @@ public class SportsJamMensShoesPage {
      * e. ReturnType: None
      */
     private void clickOnRunning() {
-        webDriverHelper.clickOnElement(SportsJamBadmintonShoesPage.running, "clicked on running");
+        webDriverHelper.clickOnElement(SportsJamBadmintonShoesPage.runningShoes, "clicked on running");
     }
 
     /*
@@ -197,7 +198,7 @@ public class SportsJamMensShoesPage {
      * e. ReturnType: None
      */
     private void verifyRunningShoesPage() {
-        webDriverHelper.verifyPageUrl("https://sportsjam.in/buy-running/buy-running-shoes-online-india", "Running shoes Page is verified");
+        webDriverHelper.verifyPageUrl(ExcelReader.getCellData("PageURLS", 5, 2), "Running shoes Page is verified");
     }
 
     /*
@@ -219,7 +220,7 @@ public class SportsJamMensShoesPage {
      * e. ReturnType: None
      */
     private void clickOnSquash() {
-        webDriverHelper.clickOnElement(SportsJamBadmintonShoesPage.squash, "Clicked on Squash");
+        webDriverHelper.clickOnElement(SportsJamBadmintonShoesPage.squashShoes, "Clicked on Squash");
     }
 
     /*
@@ -230,6 +231,6 @@ public class SportsJamMensShoesPage {
      * e. ReturnType: None
      */
     private void verifySquashShoesPage() {
-        webDriverHelper.verifyPageUrl("https://sportsjam.in/indoor-court-squash-shoes-online-india","Squash Shoes Page verified");
+        webDriverHelper.verifyPageUrl(ExcelReader.getCellData("PageURLS", 6, 2),"Squash Shoes Page verified");
     }
 }
