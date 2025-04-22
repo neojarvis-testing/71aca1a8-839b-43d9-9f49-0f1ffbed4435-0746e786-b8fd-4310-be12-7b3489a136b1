@@ -11,6 +11,8 @@ import pages.ProtectiveGearPage;
 import pages.ShopSportsPage;
 import pages.SportsJamAdidasResultsPage;
 import pages.SportsJamBadmintonPage;
+import pages.SportsJamFooterPage;
+import pages.SportsJamLoginPage;
 import pages.SportsJamMensShoesPage;
 import pages.SportsJamPumaWomenSportsPage;
 import utils.Base;
@@ -18,7 +20,8 @@ import utils.Reporter;
 import utils.Screenshot;
  
 
-public class TestSportsJam extends Base{
+public class TestSportsJam extends Base
+{
     public static ExtentTest test;
     public static ExtentReports report;
 
@@ -132,6 +135,36 @@ public class TestSportsJam extends Base{
         test = report.createTest("ProtectiveGear");
         ProtectiveGearPage pgp = new ProtectiveGearPage(test);
         pgp.testcase4();
+    }
+
+    /*
+     * a. MethodName: navigatetest
+     * b. AuthorName: Srujana Makam
+     * c. Description: This is used to run the tests of the Login page.
+     * d. Parameters: None
+     * e. Return Type: void
+     */
+    @Test(enabled = true)
+    public void navigatetest()
+    {
+        test=report.createTest("NavigateTest");
+        SportsJamLoginPage lpage=new SportsJamLoginPage(test);
+        lpage.testlogin();
+    }
+
+     /*
+     * a. MethodName: switchtest
+     * b. AuthorName: Srujana Makam
+     * c. Description: This is used to run the tests of the Footer page.
+     * d. Parameters: None
+     * e. Return Type: void
+     */
+    @Test(enabled = true)
+    public void switchtest()
+    {
+        test=report.createTest("SwitchTest");
+        SportsJamFooterPage fpage=new SportsJamFooterPage(test);
+        fpage.switchtest();
     }
 
     /*
