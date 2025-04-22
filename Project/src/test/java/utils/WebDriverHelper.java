@@ -295,4 +295,39 @@ public class WebDriverHelper {
 	public void switchBackTowindow(int x){
 		driver.switchTo().window(list.get(x));
 	}
+    public void verifyPageUrl(String expectedUrl, String message) {
+        try 
+		{
+			String PageUrl = driver.getCurrentUrl();
+			System.out.println(PageUrl);
+			System.out.println(expectedUrl);
+			Assert.assertEquals(PageUrl, expectedUrl);
+
+			LoggerHandler.info(message);
+			test.log(Status.PASS, message);
+		} 
+		catch (AssertionError e) 
+		{
+			LoggerHandler.error(message);
+			test.log(Status.FAIL, message);	
+		}
+    }
+    public void checkAssert(String text, String containsValue, String message) {
+        try {
+			System.out.println(text);
+			Assert.assertTrue(text.contains(containsValue));
+			LoggerHandler.info(message);
+			test.log(Status.PASS, message);
+		} catch (AssertionError e) {
+			LoggerHandler.error(message);
+			test.log(Status.FAIL, message);
+		}
+    }
+	public void enterData(By path) {
+		try {
+            driver.findElement(path).sendKeys(Keys.ENTER);
+        } catch (Exception e) {
+            LoggerHandler.error("Enter data is not working");
+        }
+	}
 }
