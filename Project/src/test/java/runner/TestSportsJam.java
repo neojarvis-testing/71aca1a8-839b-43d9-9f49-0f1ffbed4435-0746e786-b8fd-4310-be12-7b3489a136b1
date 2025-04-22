@@ -137,5 +137,3 @@ public class TestSportsJam extends Base{
         report.flush();
     }
 }
-
-}
