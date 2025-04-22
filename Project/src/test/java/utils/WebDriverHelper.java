@@ -162,6 +162,7 @@ public class WebDriverHelper {
 		try {
 			waitForElementToBeVisible(locator, 10);
 			WebElement element = driver.findElement(locator);
+			
 			Select select = new Select(element);
 			select.selectByVisibleText(value);
 			LoggerHandler.info(message);
@@ -324,10 +325,6 @@ public class WebDriverHelper {
 		}
     }
 	public void enterData(By path) {
-		try {
-            driver.findElement(path).sendKeys(Keys.ENTER);
-        } catch (Exception e) {
-            LoggerHandler.error("Enter data is not working");
-        }
-	}
+        driver.findElement(path).sendKeys(Keys.ENTER);
+    }
 }
