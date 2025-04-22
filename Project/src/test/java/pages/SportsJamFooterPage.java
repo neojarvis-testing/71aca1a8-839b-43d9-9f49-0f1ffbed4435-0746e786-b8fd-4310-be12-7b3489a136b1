@@ -24,7 +24,6 @@ public class SportsJamFooterPage {
     {
         helper.switchbacktowindow(0);
     }
-    
     public void clickonutube()
     {
         helper.jsScrollUsingPixel(0, 10000, "Scrolled to youtube");
