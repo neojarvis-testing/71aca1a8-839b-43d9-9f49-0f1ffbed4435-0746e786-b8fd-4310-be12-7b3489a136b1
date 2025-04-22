@@ -35,7 +35,7 @@ public class ProtectiveGearPage {
     public void verifyBattingGloves(){
         try {
             String data=helper.getText(ProtectiveGearLocators.verifyWicketKeepingLegGuard, "Verified ");
-            Assert.assertEquals(data, "");
+            Assert.assertEquals(data, "BATTING GLOVES");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -55,7 +55,7 @@ public class ProtectiveGearPage {
     public void verifyBattingLegGuard(){
         try {
             String data=helper.getText(ProtectiveGearLocators.verifyWicketKeepingLegGuard, "Verified ");
-            Assert.assertEquals(data, "");
+            Assert.assertEquals(data, "BATTING LEG GUARD");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -75,7 +75,7 @@ public class ProtectiveGearPage {
     public void verifyWicketKeepingGloves(){
         try {
             String data=helper.getText(ProtectiveGearLocators.verifyWicketKeepingLegGuard, "Verified ");
-            Assert.assertEquals(data, "");
+            Assert.assertEquals(data, "WICKET KEEPING GLOVES");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -94,7 +94,7 @@ public class ProtectiveGearPage {
     public void verifyWicketKeepingLegGuard(){
         try {
             String data=helper.getText(ProtectiveGearLocators.verifyWicketKeepingLegGuard, "Verified ");
-            Assert.assertEquals(data, "");
+            Assert.assertEquals(data, "WICKET KEEPING LEG GUARD");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -113,7 +113,7 @@ public class ProtectiveGearPage {
     public void verifyCricketHelmets(){
         try {
             String data=helper.getText(ProtectiveGearLocators.verifyCricketHelmets, "Verified ");
-            Assert.assertEquals(data, "");
+            Assert.assertEquals(data, "CRCIKET HELMETS");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -132,7 +132,7 @@ public class ProtectiveGearPage {
     public void verifyInnerThighPads(){
         try {
             String data=helper.getText(ProtectiveGearLocators.VerifyInnerThighPads, "Verified ");
-            Assert.assertEquals(data, "");
+            Assert.assertEquals(data, "INNER THIGH PADS");
         } catch (Exception e) {
             e.printStackTrace();
         }

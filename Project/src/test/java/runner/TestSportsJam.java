@@ -7,23 +7,15 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
+import pages.ShopSportsPage;
+import pages.SportsJamAdidasResultsPage;
+import pages.SportsJamBadmintonPage;
 import pages.SportsJamMensShoesPage;
 import pages.SportsJamPumaWomenSportsPage;
 import utils.Base;
 import utils.Reporter;
 import utils.Screenshot;
  
-public class TestSportsJam extends Base{
-    public static ExtentReports report;
- 
-
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-
-import pages.SportsJamAdidasResultsPage;
-import pages.SportsJamBadmintonPage;
-import utils.Base;
-import utils.Reporter;
 
 public class TestSportsJam extends Base{
     public static ExtentTest test;
@@ -84,6 +76,7 @@ public class TestSportsJam extends Base{
         sportsJamMensShoesPage.runMensShoesCase();
         Screenshot.captureScreenShot("squash");
         Reporter.attachScreenshotToReport("squash",test,"Squash Screenshot have been captured");
+    }
 
     /*
      * a. MethodName: adidasProductsFilterTest
@@ -113,6 +106,13 @@ public class TestSportsJam extends Base{
         sportsJamBadmintonPage.addProductsToCart();
     }
 
+    @Test
+    public void testcase3(){
+        test=report.createTest("testcase3");
+        ShopSportsPage ssp=new ShopSportsPage(test);
+        ssp.testcase3();
+    }
+
     /*
      * a. MethodName: close
      * b. AuthorName: Sharath
@@ -136,4 +136,5 @@ public class TestSportsJam extends Base{
     public void flush(){
         report.flush();
     }
+}
 
