@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
+import pages.ProtectiveGearPage;
 import pages.ShopSportsPage;
 import pages.SportsJamAdidasResultsPage;
 import pages.SportsJamBadmintonPage;
@@ -106,11 +107,31 @@ public class TestSportsJam extends Base{
         sportsJamBadmintonPage.addProductsToCart();
     }
 
+    /*
+     * a. MethodName: shopSportsCompare
+     * b. AuthorName: Muralidhar
+     * c. Description: This is used to run the tests of the pages.
+     * d. Parameters: None
+     * e. Return Type: void
+     */
     @Test(enabled = false)
     public void testcase3(){
         test=report.createTest("testcase3");
         ShopSportsPage ssp=new ShopSportsPage(test);
         ssp.testcase3();
+    }
+    /*
+     * a. MethodName: protectiveGear
+     * b. AuthorName: Muralidhar
+     * c. Description: This is used to run the tests of the pages.
+     * d. Parameters: None
+     * e. Return Type: void
+     */
+    @Test(enabled = true)
+    public void protectiveGear(){
+        test = report.createTest("ProtectiveGear");
+        ProtectiveGearPage pgp = new ProtectiveGearPage(test);
+        pgp.testcase4();
     }
 
     /*

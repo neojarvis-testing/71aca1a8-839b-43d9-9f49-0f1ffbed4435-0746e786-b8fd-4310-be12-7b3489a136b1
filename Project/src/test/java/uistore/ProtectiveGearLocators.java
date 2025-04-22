@@ -17,5 +17,4 @@ public class ProtectiveGearLocators {
     public static By verifyCricketHelmets=By.xpath("(//span[text()='Cricket Helmets'])[2]");
     public static By InnerThighPads=By.xpath("//span[text()='Inner Thigh Pads']");
     public static By VerifyInnerThighPads=By.xpath("(//span[text()='Inner Thigh Pads'])[2]");
-
 }
