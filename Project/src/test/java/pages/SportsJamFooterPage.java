@@ -22,7 +22,7 @@ public class SportsJamFooterPage {
     }
     public void backfromfb()
     {
-        helper.switchbacktowindow(0);
+        helper.switchBackTowindow(0);
     }
     public void clickonutube()
     {
@@ -32,7 +32,7 @@ public class SportsJamFooterPage {
     }
     public void backfromut()
     {
-        helper.switchbacktowindow(0);
+        helper.switchBackTowindow(0);
     }
     public void switchtest()
     {

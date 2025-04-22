@@ -236,4 +236,22 @@ public class WebDriverHelper {
 			test.log(Status.FAIL, message);
 		}
 	}
+	public void switchToNewWindow() {
+        try {
+            Set<String> windowHandles = driver.getWindowHandles();
+            for (String windowHandle : windowHandles) {
+                if (!windowHandle.isEmpty()) {
+                    driver.switchTo().window(windowHandle);
+                    list.add(windowHandle);
+                } else {
+                    throw new Exception("New window could not be retrieved");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+	public void switchBackTowindow(int x){
+		driver.switchTo().window(list.get(x));
+	}
 }
