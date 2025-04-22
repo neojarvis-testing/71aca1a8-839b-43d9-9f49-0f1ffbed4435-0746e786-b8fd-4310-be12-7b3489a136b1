@@ -83,6 +83,36 @@ public class TestSportsJam extends Base
     }
 
     /*
+     * a. MethodName: SportsJamGymGlovesCase
+     * b. AuthorName: Gagandeep Kanta 
+     * c. Description: This is used to run the tests of the pages.
+     * d. Parameters: None
+     * e. Return Type: None
+     */
+    @Test(enabled = true, priority = 3)
+    public void SportsJamGymGlovesCase(){
+        ExtentTest test = report.createTest("Gym Gloves Page Test");
+        SportsJamGymGlovesPage sportsJamGymGlovesPage = new SportsJamGymGlovesPage(test);
+        sportsJamGymGlovesPage.runGymGlovesPage();
+        Screenshot.captureScreenShot("order_summary");
+        Reporter.attachScreenshotToReport("order_summary", test, "Order Summary Screenshot attached");
+    }
+
+    /*
+     * a. MethodName: SportsJamCreateAccountCase
+     * b. AuthorName: Gagandeep Kanta
+     * c. Description: This is used to run the tests of the pages.
+     * d. Parameters: None
+     * e. Return Type: None
+     */
+    @Test(enabled = true, priority = 4)
+    public void SportsJamCreateAccountCase(){
+        ExtentTest test = report.createTest("Create Account Page Test");
+        SportsJamCreateAccountPage sportsJamCreateAccountPage = new SportsJamCreateAccountPage(test);
+        sportsJamCreateAccountPage.runCreateAccountPage();
+    }
+
+    /*
      * a. MethodName: adidasProductsFilterTest
      * b. AuthorName: Tanishk Maheshwari
      * c. Description: This is used to run the tests of the pages.
