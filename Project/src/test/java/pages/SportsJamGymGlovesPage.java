@@ -72,6 +72,7 @@ public class SportsJamGymGlovesPage {
     public void clickOnEverlast(){
         try {
             helper.clickOnElement(SportsJamGymGlovesPageLocators.everlast, "Clicked on Everlast");
+            helper.takeScreenshot("ClickedEverlast","Clicked on EverLast");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
