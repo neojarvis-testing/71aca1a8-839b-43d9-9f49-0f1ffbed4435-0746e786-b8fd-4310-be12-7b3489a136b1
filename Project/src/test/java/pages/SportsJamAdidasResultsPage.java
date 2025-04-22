@@ -65,6 +65,17 @@ public class SportsJamAdidasResultsPage {
     }
 
     /*
+     * a. Method Name: clickOnGoButton
+     * b. Author Name: Tanishk Maheshwari
+     * c. Description: This will be used to click on go button.
+     * d. Parameter: None
+     * e. Return Type: void
+     */
+    public void clickOnGoButton(){
+        helper.clickOnElement(SportsJamHomePageLocator.goButton, "Clicked on Go button");
+    }
+
+    /*
      * a. Method Name: pressEnter
      * b. Author Name: Tanishk Maheshwari
      * c. Description: This will be used to press enter.
@@ -84,7 +95,7 @@ public class SportsJamAdidasResultsPage {
      */
     public void verifyAdidasInHeading(){
         String text = helper.getText(SportsJamAdidasResultsPageLocator.adidasHeading, "Heading verified");
-        helper.checkAssert(text, "ADIDAS", "Heading verified");
+        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 1, 0), "Heading verified");
     }
 
     /*
@@ -236,6 +247,7 @@ public class SportsJamAdidasResultsPage {
         verifySearchBar();
         clickOnSearchBar();
         sendDataInSearchBar();
+        clickOnGoButton();
         pressEnter();
         verifyAdidasInHeading();
         selectCheckboxOfRacketSports();

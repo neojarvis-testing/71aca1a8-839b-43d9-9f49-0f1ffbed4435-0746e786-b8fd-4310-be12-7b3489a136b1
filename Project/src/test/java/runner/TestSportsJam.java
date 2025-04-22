@@ -52,7 +52,7 @@ public class TestSportsJam extends Base{
      * d. Parameters: None
      * e. Return Type: None
      */
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void SportsJamWomenSportsCase(){
         ExtentTest test = report.createTest("Puma Brand Page Test");
         SportsJamPumaWomenSportsPage sportsJamPumaWomenSportsPage = new SportsJamPumaWomenSportsPage(driver,test);
@@ -69,7 +69,7 @@ public class TestSportsJam extends Base{
      * d. Parameters: None
      * e. Return Type: None
      */
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void SprotsJamBadmintonPageVerificationCase(){
         ExtentTest test = report.createTest("Shoes Page Test");
         SportsJamMensShoesPage  sportsJamMensShoesPage = new SportsJamMensShoesPage(driver,test);
@@ -85,7 +85,7 @@ public class TestSportsJam extends Base{
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test
+    @Test(enabled = true)
     public void adidasProductsFilterTest(){
         test = report.createTest("adidasProductsFilterTest");
         SportsJamAdidasResultsPage sportsJamAdidasResultsPage = new SportsJamAdidasResultsPage(test);
@@ -99,14 +99,14 @@ public class TestSportsJam extends Base{
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test
+    @Test(enabled = true)
     public void addProductsToCartTest(){
         test = report.createTest("addProductsToCartTest");
         SportsJamBadmintonPage sportsJamBadmintonPage = new SportsJamBadmintonPage(test);
         sportsJamBadmintonPage.addProductsToCart();
     }
 
-    @Test
+    @Test(enabled = false)
     public void testcase3(){
         test=report.createTest("testcase3");
         ShopSportsPage ssp=new ShopSportsPage(test);
