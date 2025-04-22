@@ -1,5 +1,4 @@
 package utils;
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 // import org.slf4j.Logger;
@@ -20,9 +19,10 @@ public class LoggerHandler {
         try {
             String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
             String logFileName = "logs/logfile_"+timestamp+".log";
-            FileAppender fileAppender = new FileAppender(new PatternLayout("%d{ISO8601} %-5p %c - %m%n "),logFileName,true);
+            FileAppender fileAppender = new FileAppender(new PatternLayout("%d{ISO8601} %-5p - %m%n "),logFileName,true);
             logger.addAppender(fileAppender);
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     /*
