@@ -164,7 +164,7 @@ public class SportsJamMensShoesPage {
      * e. ReturnType: None
      */
     private void clickOnFootBall() {
-        webDriverHelper.clickOnElement(SportsJamBadmintonShoesPage.football, "Clicked on football");
+        webDriverHelper.clickOnElement(SportsJamBadmintonShoesPage.football, "click on football");
     }
 
     /*
