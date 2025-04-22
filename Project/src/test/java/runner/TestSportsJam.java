@@ -13,19 +13,11 @@ import utils.Base;
 import utils.Reporter;
 import utils.Screenshot;
  
-public class TestSportsJam extends Base{
-    public static ExtentReports report;
- 
-
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-
 import pages.SportsJamAdidasResultsPage;
 import pages.SportsJamBadmintonPage;
-import utils.Base;
-import utils.Reporter;
 
-public class TestSportsJam extends Base{
+public class TestSportsJam extends Base
+{
     public static ExtentTest test;
     public static ExtentReports report;
 
@@ -84,7 +76,7 @@ public class TestSportsJam extends Base{
         sportsJamMensShoesPage.runMensShoesCase();
         Screenshot.captureScreenShot("squash");
         Reporter.attachScreenshotToReport("squash",test,"Squash Screenshot have been captured");
-
+    }
     /*
      * a. MethodName: adidasProductsFilterTest
      * b. AuthorName: Tanishk Maheshwari
@@ -137,3 +129,4 @@ public class TestSportsJam extends Base{
         report.flush();
     }
 
+}
