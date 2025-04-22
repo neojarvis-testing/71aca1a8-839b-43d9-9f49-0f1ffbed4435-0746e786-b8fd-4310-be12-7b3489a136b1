@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
+import pages.ProtectiveGearPage;
 import pages.ShopSportsPage;
 import utils.Base;
 import utils.Reporter;
@@ -46,6 +47,13 @@ public class TestExecutor extends Base{
         test=report.createTest("testcase3");
         ShopSportsPage ssp=new ShopSportsPage(test);
         ssp.testcase3();
+    }
+
+    @Test
+    public void testcase4(){
+        test = report.createTest("testcase4");
+        ProtectiveGearPage pgp = new ProtectiveGearPage(test);
+        pgp.testcase4();
     }
     /*
      * a. MethodName: closeInterface

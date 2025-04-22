@@ -5,7 +5,6 @@ import org.testng.Assert;
 import com.aventstack.extentreports.ExtentTest;
 
 import uistore.ProtectiveGearLocators;
-import uistore.ShopSportsLocators;
 import utils.Base;
 import utils.WebDriverHelper;
 
@@ -31,10 +30,11 @@ public class ProtectiveGearPage {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
     }
     public void verifyBattingGloves(){
         try {
-            String data=helper.getText(ProtectiveGearLocators.verifyWicketKeepingLegGuard, "Verified ");
+            String data=helper.getText(ProtectiveGearLocators.BattingGlovesverify, "Verified ");
             Assert.assertEquals(data, "BATTING GLOVES");
         } catch (Exception e) {
             e.printStackTrace();
@@ -54,13 +54,13 @@ public class ProtectiveGearPage {
     }
     public void verifyBattingLegGuard(){
         try {
-            String data=helper.getText(ProtectiveGearLocators.verifyWicketKeepingLegGuard, "Verified ");
-            Assert.assertEquals(data, "BATTING LEG GUARD");
+            String data=helper.getText(ProtectiveGearLocators.BattingGlovesverify, "Verified ");
+            Assert.assertEquals(data, "BATTING LEG GUARDS");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-// 
+
     public void clickOnWicketKeepingGloves(){
         helper.clickOnElement(ProtectiveGearLocators.wicketKeepingGloves, "Clicked On Wicket Keeping Gloves");
     }
@@ -74,7 +74,7 @@ public class ProtectiveGearPage {
     }
     public void verifyWicketKeepingGloves(){
         try {
-            String data=helper.getText(ProtectiveGearLocators.verifyWicketKeepingLegGuard, "Verified ");
+            String data=helper.getText(ProtectiveGearLocators.BattingGlovesverify, "Verified ");
             Assert.assertEquals(data, "WICKET KEEPING GLOVES");
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,8 +93,8 @@ public class ProtectiveGearPage {
     }
     public void verifyWicketKeepingLegGuard(){
         try {
-            String data=helper.getText(ProtectiveGearLocators.verifyWicketKeepingLegGuard, "Verified ");
-            Assert.assertEquals(data, "WICKET KEEPING LEG GUARD");
+            String data=helper.getText(ProtectiveGearLocators.BattingGlovesverify, "Verified ");
+            Assert.assertEquals(data, "WICKET KEEPING LEG GUARDS");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -112,8 +112,8 @@ public class ProtectiveGearPage {
     }
     public void verifyCricketHelmets(){
         try {
-            String data=helper.getText(ProtectiveGearLocators.verifyCricketHelmets, "Verified ");
-            Assert.assertEquals(data, "CRCIKET HELMETS");
+            String data=helper.getText(ProtectiveGearLocators.BattingGlovesverify, "Verified ");
+            Assert.assertEquals(data, "CRICKET HELMETS");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -131,9 +131,51 @@ public class ProtectiveGearPage {
     }
     public void verifyInnerThighPads(){
         try {
-            String data=helper.getText(ProtectiveGearLocators.VerifyInnerThighPads, "Verified ");
+            String data=helper.getText(ProtectiveGearLocators.BattingGlovesverify, "Verified ");
             Assert.assertEquals(data, "INNER THIGH PADS");
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testcase4(){
+        try{
+        HoverOnTeamSport();
+        HoveredOnProtectiveGear();
+        clickOnBattingGloves();
+        verifyBattingGlovesURL();
+        verifyBattingGloves();
+        Base.driver.navigate().back();
+        HoverOnTeamSport();
+        HoveredOnProtectiveGear();
+        clickOnBattingLegGuards();
+        verifyBattingLeguardURL();
+        verifyBattingLegGuard();
+        Base.driver.navigate().back();
+        HoverOnTeamSport();
+        HoveredOnProtectiveGear();
+        clickOnWicketKeepingGloves();
+        verifyWicketKeepingGlovesURL();
+        verifyWicketKeepingGloves();
+        Base.driver.navigate().back();
+        HoverOnTeamSport();
+        HoveredOnProtectiveGear();
+        clickoNWicketKeepingLegGuard();
+        verifyWicketKeepingLegGuardURL();
+        verifyWicketKeepingLegGuard();
+        Base.driver.navigate().back();
+        HoverOnTeamSport();
+        HoveredOnProtectiveGear();
+        clickonCricketHelmets();
+        verifyCricketHelmetsURL();
+        verifyCricketHelmets();
+        Base.driver.navigate().back();
+        HoverOnTeamSport();
+        HoveredOnProtectiveGear();
+        ClickOnInnerThighPads();
+        verifyInnerThighPadsURL();
+        verifyInnerThighPads();
+        }catch(Exception e){
             e.printStackTrace();
         }
     }
