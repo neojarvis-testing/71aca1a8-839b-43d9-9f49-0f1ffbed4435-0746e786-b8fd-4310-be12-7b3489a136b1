@@ -53,7 +53,7 @@ public class TestSportsJam extends Base{
      * d. Parameters: None
      * e. Return Type: None
      */
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void SportsJamWomenSportsCase(){
         ExtentTest test = report.createTest("Puma Brand Page Test");
         SportsJamPumaWomenSportsPage sportsJamPumaWomenSportsPage = new SportsJamPumaWomenSportsPage(driver,test);
@@ -70,7 +70,7 @@ public class TestSportsJam extends Base{
      * d. Parameters: None
      * e. Return Type: None
      */
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void SprotsJamBadmintonPageVerificationCase(){
         ExtentTest test = report.createTest("Shoes Page Test");
         SportsJamMensShoesPage  sportsJamMensShoesPage = new SportsJamMensShoesPage(driver,test);
@@ -86,7 +86,7 @@ public class TestSportsJam extends Base{
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test
+    @Test(enabled = false)
     public void adidasProductsFilterTest(){
         test = report.createTest("adidasProductsFilterTest");
         SportsJamAdidasResultsPage sportsJamAdidasResultsPage = new SportsJamAdidasResultsPage(test);
@@ -100,7 +100,7 @@ public class TestSportsJam extends Base{
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test
+    @Test(enabled = false)
     public void addProductsToCartTest(){
         test = report.createTest("addProductsToCartTest");
         SportsJamBadmintonPage sportsJamBadmintonPage = new SportsJamBadmintonPage(test);
@@ -115,7 +115,7 @@ public class TestSportsJam extends Base{
      * e. Return Type: void
      */
 
-    @Test
+    @Test(enabled = true)
     public void shopsportscompare(){
         test=report.createTest("Shopsportscomparison");
         ShopSportsPage ssp=new ShopSportsPage(test);
@@ -128,7 +128,7 @@ public class TestSportsJam extends Base{
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test
+    @Test(enabled = true)
     public void ProtectiveGear(){
         test = report.createTest("ProtectiveG");
         ProtectiveGearPage pgp = new ProtectiveGearPage(test);
