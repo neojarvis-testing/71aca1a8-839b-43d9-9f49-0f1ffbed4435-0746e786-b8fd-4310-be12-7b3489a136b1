@@ -1,4 +1,6 @@
 package runner;
+import java.io.File;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -221,5 +223,6 @@ public class TestSportsJam extends Base
     @AfterClass
     public void flush(){
         report.flush();
+		Reporter.sendEmail("sharathj886@gmail.com", "Automated Test Report", Reporter.report);
     }
 }
