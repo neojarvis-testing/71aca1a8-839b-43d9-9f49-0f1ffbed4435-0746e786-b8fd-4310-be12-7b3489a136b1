@@ -143,15 +143,15 @@ public class TestSportsJam extends Base
     }
 
     /*
-     * a. MethodName: shopSportsCompare
+     * a. MethodName: shopSports
      * b. AuthorName: Muralidhar
      * c. Description: This is used to run the tests of the pages.
      * d. Parameters: None
      * e. Return Type: void
      */
     @Test(enabled = true,priority = 7)
-    public void testcase3(){
-        test=report.createTest("testcase3");
+    public void shopSports(){
+        test=report.createTest("shopSports");
         ShopSportsPage ssp=new ShopSportsPage(test);
         ssp.testcase3();
     }
