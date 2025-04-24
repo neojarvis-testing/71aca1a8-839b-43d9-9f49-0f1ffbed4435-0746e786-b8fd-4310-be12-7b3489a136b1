@@ -7,7 +7,7 @@ import utils.Base;
 import utils.WebDriverHelper;
 
 public class SportsJamFooterPage {
-    public static WebDriverHelper helper;
+    public  WebDriverHelper helper;
     public ExtentTest test;
     public SportsJamFooterPage(ExtentTest test)
     {
@@ -29,7 +29,7 @@ public class SportsJamFooterPage {
             helper.clickOnElement(SportsJamFooterLocators.facebookIcon, "Clicked on facebook");
             helper.switchToNewWindow();
             helper.jsScrollUsingPixel(0, 5000, "Scrolled to facebook");
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

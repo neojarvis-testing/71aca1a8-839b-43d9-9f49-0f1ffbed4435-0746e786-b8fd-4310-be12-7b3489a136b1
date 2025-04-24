@@ -7,12 +7,13 @@ import uistore.SportsJamBadmintonShoesResultsPageLocator;
 import uistore.SportsJamHomePageLocator;
 import utils.Base;
 import utils.ExcelReader;
+import utils.LoggerHandler;
 import utils.Screenshot;
 import utils.WebDriverHelper;
 
 public class SportsJamBadmintonPage {
     public  ExtentTest test;
-    public static WebDriverHelper helper;
+    public  WebDriverHelper helper;
 
     public SportsJamBadmintonPage(ExtentTest test){
         helper = new WebDriverHelper(Base.driver, test);
@@ -50,7 +51,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyBadmintonRackets(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.headingBadmintonRackets, "Page verified");
-        System.out.println(text);
+        LoggerHandler.info(text);
         helper.checkAssert(text, ExcelReader.getCellData("AssertData", 7, 0), "Heading verified");
     }
 
@@ -65,7 +66,7 @@ public class SportsJamBadmintonPage {
         try {
             Thread.sleep(2000);
             helper.clickOnElement(SportsJamBadmintonRacketsResultsPageLocator.productNumberOne, "Clicked on product");
-        } catch (Exception e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
@@ -79,7 +80,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyProductPage(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.headingProductNumberOne, "Product heading retrieved");
-        System.out.println(text);
+        LoggerHandler.info(text);
         helper.checkAssert(text, ExcelReader.getCellData("AssertData", 8, 0), "Product heading verified");
     }
 
@@ -92,7 +93,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyAddToCartButton(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.addToCartButtonLabel, "Add to cart button retrieved");
-        System.out.println(text);
+        LoggerHandler.info(text);
         helper.checkAssert(text, ExcelReader.getCellData("AssertData", 9, 0), "Add to cart button verified");
     }
 
@@ -127,7 +128,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyConfirmationMessageInPopUp(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.confirmationMessageInCartPopUp, "Product added to cart message retrieved in cart pop up");
-        System.out.println(text+" no text");
+        LoggerHandler.info(text);
         helper.checkAssert(text, ExcelReader.getCellData("AssertData", 10, 0), "Product added to cart message verified in cart pop up");
     }
 
@@ -140,7 +141,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyConfirmationMessageInPage(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.confirmationMessageInPage, "Product added to cart message retrieved in page");
-        System.out.println(text);
+        LoggerHandler.info(text);
         helper.checkAssert(text, ExcelReader.getCellData("AssertData", 11, 0), "Product added to cart message verified in page");
     }
 
@@ -153,7 +154,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyZIPCodeError(){
         String text = helper.getText(SportsJamBadmintonRacketsResultsPageLocator.errorMessageEmptyZipcode, "ZIPCode error message retrieved");
-        System.out.println(text);
+        LoggerHandler.info(text);
         helper.checkAssert(text, ExcelReader.getCellData("AssertData", 12, 0), "ZIPCode error message verified");
     }
 
@@ -211,7 +212,7 @@ public class SportsJamBadmintonPage {
      */
     public void verifyBadmintonShoes(){
         String text = Base.driver.getCurrentUrl();
-        System.out.println(text);
+        LoggerHandler.info(text);
         helper.checkAssert(text.toLowerCase(), ExcelReader.getCellData("AssertData", 13, 0), "Badminton shoes in page URL is verified");
     }
 
@@ -247,7 +248,7 @@ public class SportsJamBadmintonPage {
     public void verifyErrorMessage(){
         Screenshot.captureScreenShot("WithoutSizeShoes");
         String text = helper.getText(SportsJamBadmintonShoesResultsPageLocator.errorMessageWithoutSize, "Without size selection error message is retrieved");
-        System.out.println(text);
+        LoggerHandler.info(text);
         helper.checkAssert(text.toLowerCase(), ExcelReader.getCellData("AssertData", 14, 0), "Without size selection error message is verified");
     }
 

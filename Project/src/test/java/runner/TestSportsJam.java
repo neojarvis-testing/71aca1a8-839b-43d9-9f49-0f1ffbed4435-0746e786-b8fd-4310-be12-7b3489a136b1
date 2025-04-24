@@ -1,9 +1,7 @@
 package runner;
-import java.io.File;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -27,8 +25,8 @@ import utils.Screenshot;
 
 public class TestSportsJam extends Base
 {
-    public static ExtentTest test;
-    public static ExtentReports report;
+    ExtentTest test;
+    ExtentReports report;
 
     /*
      * a. MethodName: generate
@@ -224,6 +222,6 @@ public class TestSportsJam extends Base
     @AfterClass
     public void flush(){
         report.flush();
-		Reporter.sendEmail("sharathj886@gmail.com", "Automated Test Report", Reporter.report);
+		//  Reporter.sendEmail("sharathj886@gmail.com", "Automated Test Report", Reporter.report);
     }
 }

@@ -1,18 +1,13 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-
 import com.aventstack.extentreports.ExtentTest;
 
 import uistore.PumaProductPageLocators;
 import uistore.SportsJamBrandPageLocators;
 import uistore.SportsJamCustomerLoginLocators;
 import uistore.SportsJamHomePageLocators;
-import utils.Base;
 import utils.ExcelReader;
-import utils.Reporter;
-import utils.Screenshot;
 import utils.WebDriverHelper;
 
 public class SportsJamPumaWomenSportsPage {
