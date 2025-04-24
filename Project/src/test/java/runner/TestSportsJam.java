@@ -224,6 +224,6 @@ public class TestSportsJam extends Base
     @AfterClass
     public void flush(){
         report.flush();
-		Reporter.sendEmail("sharathj886@gmail.com", "Automated Test Report", Reporter.report);
+		// Reporter.sendEmail("sharathj886@gmail.com", "Automated Test Report", Reporter.report);
     }
 }
