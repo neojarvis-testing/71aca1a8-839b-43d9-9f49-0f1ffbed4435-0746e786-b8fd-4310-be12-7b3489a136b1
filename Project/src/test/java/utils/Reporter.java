@@ -1,5 +1,8 @@
 package utils;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.Date;
@@ -167,8 +170,20 @@ public class Reporter extends Base {
      * Return Type:void
      */
     public static void sendEmail(String recipient, String subject, String reportFilePath) {
-            final String senderEmail = "makamsrujana03@gmail.com"; 
-            final String senderPassword = "tkdswezfuhmaumug";   
+            String propertiesPath = System.getProperty("user.dir") + "/config/config.properties";
+            FileInputStream file;
+            Properties prop = null;
+        try {
+            file = new FileInputStream(propertiesPath);
+            prop = new Properties();
+            prop.load(file);
+
+        } catch (IOException e) {
+            LoggerHandler.info(e.getMessage());
+
+        }
+            final String senderEmail = prop.getProperty("senderemail"); 
+            final String senderPassword = prop.getProperty("senderpassword");   
             Properties properties = new Properties();
             properties.put("mail.smtp.host", "smtp.gmail.com");
             properties.put("mail.smtp.port", "587");
@@ -195,7 +210,7 @@ public class Reporter extends Base {
                 Transport.send(message);
                 System.out.println("Email sent successfully!");
             } catch (Exception e) {
-                e.printStackTrace();
+                LoggerHandler.info(e.getMessage());
             }
         }
 }
