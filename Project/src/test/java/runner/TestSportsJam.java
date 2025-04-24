@@ -1,6 +1,9 @@
 package runner;
+import java.io.File;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -58,7 +61,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: None
      */
-    @Test(enabled = true,priority = 5)
+    @Test(enabled = false,priority = 5)
     public void sportsJamWomenSportsCase(){
         ExtentTest test = report.createTest("Puma Brand Page Test");
         SportsJamPumaWomenSportsPage sportsJamPumaWomenSportsPage = new SportsJamPumaWomenSportsPage(driver,test);
@@ -75,7 +78,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: None
      */
-    @Test(enabled = true,priority = 6)
+    @Test(enabled = false,priority = 6)
     public void sprotsJamBadmintonPageVerificationCase(){
         ExtentTest test = report.createTest("Shoes Page Test");
         SportsJamMensShoesPage  sportsJamMensShoesPage = new SportsJamMensShoesPage(driver,test);
@@ -91,7 +94,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: None
      */
-    @Test(enabled = true, priority = 3)
+    @Test(enabled = false, priority = 3)
     public void sportsJamGymGlovesCase(){
         ExtentTest test = report.createTest("Gym Gloves Page Test");
         SportsJamGymGlovesPage sportsJamGymGlovesPage = new SportsJamGymGlovesPage(test);
@@ -107,7 +110,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: None
      */
-    @Test(enabled = true, priority = 4)
+    @Test(enabled = false, priority = 4)
     public void sportsJamCreateAccountCase(){
         ExtentTest test = report.createTest("Create Account Page Test");
         SportsJamCreateAccountPage sportsJamCreateAccountPage = new SportsJamCreateAccountPage(test);
@@ -121,7 +124,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test(enabled = true,priority = 1)
+    @Test(enabled = false,priority = 1)
     public void adidasProductsFilterTest(){
         test = report.createTest("adidasProductsFilterTest");
         SportsJamAdidasResultsPage sportsJamAdidasResultsPage = new SportsJamAdidasResultsPage(test);
@@ -149,7 +152,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test(enabled = true,priority = 7)
+    @Test(enabled = false,priority = 7)
     public void shopSports(){
         test=report.createTest("shopSports");
         ShopSportsPage ssp=new ShopSportsPage(test);
@@ -162,7 +165,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test(enabled = true,priority = 8)
+    @Test(enabled = false,priority = 8)
     public void protectiveGear(){
         test = report.createTest("ProtectiveGear");
         ProtectiveGearPage pgp = new ProtectiveGearPage(test);
@@ -176,7 +179,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test(enabled = true,priority = 9)
+    @Test(enabled = false,priority = 9)
     public void navigatetest()
     {
         test=report.createTest("NavigateTest");
@@ -191,7 +194,7 @@ public class TestSportsJam extends Base
      * d. Parameters: None
      * e. Return Type: void
      */
-    @Test(enabled = true,priority = 10)
+    @Test(enabled = false,priority = 10)
     public void switchtest()
     {
         test=report.createTest("SwitchTest");
@@ -221,5 +224,6 @@ public class TestSportsJam extends Base
     @AfterClass
     public void flush(){
         report.flush();
+		Reporter.sendEmail("sharathj886@gmail.com", "Automated Test Report", Reporter.report);
     }
 }

@@ -3,19 +3,33 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.Date;
+import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+import jakarta.mail.Message;
+import jakarta.mail.Multipart;
+import jakarta.mail.PasswordAuthentication;
+import jakarta.mail.Session;
+import jakarta.mail.Transport;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeBodyPart;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.internet.MimeMultipart;
  
 public class Reporter extends Base {
     private static ExtentReports extentReport;
     private static ExtentSparkReporter extentSparkReporter;
+    public static String report;
     
     /*
      * AuthorName: Srujana Makam
@@ -51,7 +65,7 @@ public class Reporter extends Base {
         if (extentReport == null) {
             String time = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
             String reportsPath = System.getProperty("user.dir") + "/reports/";
-            String report = reportsPath + reportName +"_"+time+ "_.html"; 
+            report = reportsPath + reportName +"_"+time+ "_.html"; 
             File reportsDir = new File(reportsPath);
             if (!reportsDir.exists()) {
                 reportsDir.mkdirs();
@@ -145,4 +159,43 @@ public class Reporter extends Base {
 		}
 		return "";
     }
+     /*
+     * AuthorName: Srujana Makam
+     * MethodName:sendEmail
+     * Description:A method to attach report to email
+     * Parameters:recipient,subject,reportFilePath
+     * Return Type:void
+     */
+    public static void sendEmail(String recipient, String subject, String reportFilePath) {
+            final String senderEmail = "makamsrujana03@gmail.com"; 
+            final String senderPassword = "tkdswezfuhmaumug";   
+            Properties properties = new Properties();
+            properties.put("mail.smtp.host", "smtp.gmail.com");
+            properties.put("mail.smtp.port", "587");
+            properties.put("mail.smtp.auth", "true");
+            properties.put("mail.smtp.starttls.enable", "true");
+            Session	session= Session.getInstance(properties, new jakarta.mail.Authenticator(){
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(senderEmail, senderPassword);
+                }
+            });
+            try {
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress(senderEmail));
+                message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
+                message.setSubject(subject);
+                MimeBodyPart textPart = new MimeBodyPart();
+                textPart.setText("Please find the attached report.");
+                MimeBodyPart filePart = new MimeBodyPart();
+                filePart.attachFile(new File(reportFilePath));
+                Multipart multipart = new MimeMultipart();
+                multipart.addBodyPart(textPart);
+                multipart.addBodyPart(filePart);
+                message.setContent(multipart);
+                Transport.send(message);
+                System.out.println("Email sent successfully!");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 }
