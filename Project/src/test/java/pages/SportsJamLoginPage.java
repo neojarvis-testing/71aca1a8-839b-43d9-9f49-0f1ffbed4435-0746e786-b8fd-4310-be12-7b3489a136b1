@@ -10,8 +10,9 @@ import utils.ExcelReader;
 import utils.WebDriverHelper;
 
 public class SportsJamLoginPage {
-    public static WebDriverHelper helper;
     public ExtentTest test;
+    public  WebDriverHelper helper;
+    String excelLoginSheet = "LoginSheet";
     public SportsJamLoginPage(ExtentTest test)
     {
         helper=new WebDriverHelper(Base.driver, test);
@@ -31,7 +32,7 @@ public class SportsJamLoginPage {
             Thread.sleep(3000);
             helper.jsScrollUsingPixel(0, 5000, "Scrolled to Login");
             helper.clickOnElement(SportsJamLoginLocators.login,"Clicked on login");
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -45,7 +46,7 @@ public class SportsJamLoginPage {
     public void verifyLogin()
     {
         String title=Base.driver.getTitle();
-        Assert.assertTrue(title.contains(ExcelReader.getCellData("LoginSheet", 0, 0)));
+        Assert.assertTrue(title.contains(ExcelReader.getCellData(excelLoginSheet, 0, 0)));
     }
     /*
      * a. Method Name: backFromLogin
@@ -80,7 +81,7 @@ public class SportsJamLoginPage {
     public void verifyDelivery()
     {
         String title=Base.driver.getTitle();
-        Assert.assertTrue(title.contains(ExcelReader.getCellData("LoginSheet", 1, 0)));
+        Assert.assertTrue(title.contains(ExcelReader.getCellData(excelLoginSheet, 1, 0)));
     }
     /*
      * a. Method Name: backFromDelivery
@@ -115,7 +116,7 @@ public class SportsJamLoginPage {
     public void verifyPayment()
     {
         String title=Base.driver.getTitle();
-        Assert.assertTrue(title.contains(ExcelReader.getCellData("LoginSheet", 2, 0)));
+        Assert.assertTrue(title.contains(ExcelReader.getCellData(excelLoginSheet, 2, 0)));
     }
     /*
      * a. Method Name: backFromPayment
@@ -150,7 +151,7 @@ public class SportsJamLoginPage {
     public void verifyFAQ()
     {
         String title=Base.driver.getTitle();
-        Assert.assertTrue(title.contains(ExcelReader.getCellData("LoginSheet", 3, 0)));  
+        Assert.assertTrue(title.contains(ExcelReader.getCellData(excelLoginSheet, 3, 0)));  
     }
     /*
      * a. Method Name: backFromFAQ
@@ -185,7 +186,7 @@ public class SportsJamLoginPage {
     public void verifyPolicy()
     {
         String title=Base.driver.getTitle();
-        Assert.assertTrue(title.contains(ExcelReader.getCellData("LoginSheet", 4, 0)));
+        Assert.assertTrue(title.contains(ExcelReader.getCellData(excelLoginSheet, 4, 0)));
     }
     /*
      * a. Method Name: backFromPolicy

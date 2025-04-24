@@ -19,8 +19,8 @@ import org.openqa.selenium.support.events.WebDriverListener;
 public class Base {
 
     public static WebDriver driver;
-    public static FileInputStream file;
-    public static Properties prop;
+    public FileInputStream file;
+    public Properties prop;
 
     /*
      * a. Method Name: loadProperties
@@ -37,7 +37,7 @@ public class Base {
             prop.load(file);
 
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            LoggerHandler.info(e.getMessage());
 
         }
     }
@@ -54,7 +54,7 @@ public class Base {
         try {
             loadProperties();
         } catch (IOException e) {
-            e.printStackTrace();
+            LoggerHandler.info(e.getMessage());
         }
         String executionType = prop.getProperty("executiontype");
         String browserName = prop.getProperty("browser");
@@ -66,7 +66,7 @@ public class Base {
                 driver = new RemoteWebDriver(gridUrl, new ChromeOptions());
             } catch (MalformedURLException e) {
 
-                e.printStackTrace();
+                LoggerHandler.info(e.getMessage());
             }
 
         } else if ("local".equalsIgnoreCase(executionType)) {
@@ -88,7 +88,7 @@ public class Base {
                     break;
             }
         } else {
-            System.err.println("Invalid execution type: " + executionType);
+            LoggerHandler.info("Invalid execution type: " + executionType);
         }
 
         if (driver != null)

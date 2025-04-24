@@ -8,11 +8,13 @@ import uistore.SportsJamAdidasResultsPageLocator;
 import uistore.SportsJamHomePageLocator;
 import utils.Base;
 import utils.ExcelReader;
+import utils.LoggerHandler;
 import utils.WebDriverHelper;
 
 public class SportsJamAdidasResultsPage {
-    public  ExtentTest test;
-    public static WebDriverHelper helper;
+    ExtentTest test;
+    WebDriverHelper helper;
+    String excelAssertData = "AssertData";
 
     public SportsJamAdidasResultsPage(ExtentTest test){
         helper = new WebDriverHelper(Base.driver, test);
@@ -39,8 +41,8 @@ public class SportsJamAdidasResultsPage {
      */
     public void verifySearchBar(){
         String text = Base.driver.findElement(SportsJamHomePageLocator.placeholderSearchBar).getDomAttribute("placeholder");
-        System.out.println(text);
-        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 0, 0),"Search bar is verified and displayed");
+        LoggerHandler.info(text);
+        helper.checkAssert(text, ExcelReader.getCellData(excelAssertData, 0, 0),"Search bar is verified and displayed");
     }
 
     /*
@@ -96,8 +98,8 @@ public class SportsJamAdidasResultsPage {
      */
     public void verifyAdidasInHeading(){
         String text = helper.getText(SportsJamAdidasResultsPageLocator.adidasHeading, "Adidas heading verified");
-        System.out.println(text);
-        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 1, 0), "Adidas heading verified");
+        LoggerHandler.info(text);
+        helper.checkAssert(text, ExcelReader.getCellData(excelAssertData, 1, 0), "Adidas heading verified");
     }
 
     /*
@@ -120,8 +122,8 @@ public class SportsJamAdidasResultsPage {
      */
     public void verifyRacketSportsLabel(){
         String text = helper.getText(SportsJamAdidasResultsPageLocator.filterCategoryRacketSportsLabel, "Racket Sports label verified");
-        System.out.println(text);
-        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 2, 0),"Racket Sports label verified");
+        LoggerHandler.info(text);
+        helper.checkAssert(text, ExcelReader.getCellData(excelAssertData, 2, 0),"Racket Sports label verified");
     }
     
     /*
@@ -144,8 +146,8 @@ public class SportsJamAdidasResultsPage {
      */
     public void verifyShoesLabel(){
         String text = helper.getText(SportsJamAdidasResultsPageLocator.filterCategoryShoesLabel, "Shoes label verified");
-        System.out.println(text);
-        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 3, 0),"Shoes label verified");
+        LoggerHandler.info(text);
+        helper.checkAssert(text, ExcelReader.getCellData(excelAssertData, 3, 0),"Shoes label verified");
     }
 
     /*
@@ -179,8 +181,8 @@ public class SportsJamAdidasResultsPage {
      */
     public void verifyClothingLabel(){
         String text = helper.getText(SportsJamAdidasResultsPageLocator.filterCategoryClothingLabel, "Clothing label verified");
-        System.out.println(text);
-        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 4, 0), "Clothing label verified");
+        LoggerHandler.info(text);
+        helper.checkAssert(text, ExcelReader.getCellData(excelAssertData, 4, 0), "Clothing label verified");
     }
 
     /*
@@ -203,8 +205,8 @@ public class SportsJamAdidasResultsPage {
      */
     public void verifyAccessoriesLabel(){
         String text = helper.getText(SportsJamAdidasResultsPageLocator.filterCategoryAccessoriesLabel, "Accessories label verified");
-        System.out.println(text);
-        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 5, 0), "Accessories label verified");
+        LoggerHandler.info(text);
+        helper.checkAssert(text, ExcelReader.getCellData(excelAssertData, 5, 0), "Accessories label verified");
     }
 
     /*
@@ -227,8 +229,8 @@ public class SportsJamAdidasResultsPage {
      */
     public void verifyRunningLabel(){
         String text = helper.getText(SportsJamAdidasResultsPageLocator.filterCategoryRunningLabel, "Running label verified");
-        System.out.println(text);
-        helper.checkAssert(text, ExcelReader.getCellData("AssertData", 6, 0), "Running label verified");
+        LoggerHandler.info(text);
+        helper.checkAssert(text, ExcelReader.getCellData(excelAssertData, 6, 0), "Running label verified");
     }
 
     /*
